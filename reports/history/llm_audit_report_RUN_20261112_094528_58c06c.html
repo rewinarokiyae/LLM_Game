@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Workload LLM Audit Report - RUN_20261112_094528_58c06c</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --border: #e2e8f0;
+            --pass: #16a34a;
+            --partial: #d97706;
+            --fail: #dc2626;
+            --hallucination: #7c3aed;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background: #1e293b;
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 { margin: 0 0 6px 0; font-size: 24px; }
+        .header p { margin: 0; opacity: 0.8; font-size: 14px; }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .metric-card {
+            background: var(--card-bg);
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .metric-card .value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .metric-card .label {
+            font-size: 13px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        h2 { margin-top: 0; font-size: 18px; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th { background: #f1f5f9; font-weight: 600; }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: white;
+        }
+        .badge-pass { background: var(--pass); }
+        .badge-partial { background: var(--partial); }
+        .badge-fail { background: var(--fail); }
+        .badge-hallucination { background: var(--hallucination); }
+        .badge-error { background: #000; }
+        .progress-bar-container {
+            width: 100px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            height: 10px;
+            display: inline-block;
+            margin-right: 8px;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+        .progress-bar {
+            height: 100%;
+        }
+        .fail-card {
+            background: #fff;
+            border: 1px solid #fecaca;
+            border-left: 4px solid var(--fail);
+            border-radius: 6px;
+            padding: 14px;
+            margin-bottom: 14px;
+        }
+        .fail-header {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+        .fail-body .row { margin-bottom: 6px; font-size: 13px; }
+        .tag {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #334155;
+        }
+        pre {
+            background: #f8fafc;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            overflow-x: auto;
+            margin: 4px 0;
+            border: 1px solid #e2e8f0;
+            white-space: pre-wrap;
+        }
+        .alert-success {
+            background: #dcfce7;
+            color: #166534;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Faculty Workload Intelligence Assistant</h1>
+                <p>Automated LLM Testing & Audit Framework Report | Run ID: RUN_20261112_094528_58c06c</p>
+            </div>
+            <div style="text-align: right;">
+                <p><strong>Generated:</strong> 2026-11-12T09:45:30.006428</p>
+                <p><strong>Status:</strong> Deterministic Offline Mode (LLM Not Connected)</p>
+            </div>
+        </div>
+
+        <!-- Metrics Overview -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="value" style="color: #2563eb;">69</div>
+                <div class="label">Total Questions</div>
+            </div>
+            <div class="metric-card">
+                <div class="value" style="color: var(--pass);">16</div>
+                <div class="label">Passed</div>
+            </div>
+            <div class="metric-card">
+                <div class="value" style="color: var(--partial);">11</div>
+                <div class="label">Partial</div>
+            </div>
+            <div class="metric-card">
+                <div class="value" style="color: var(--fail);">18</div>
+                <div class="label">Failed</div>
+            </div>
+            <div class="metric-card">
+                <div class="value" style="color: var(--hallucination);">1</div>
+                <div class="label">Hallucinations</div>
+            </div>
+            <div class="metric-card">
+                <div class="value" style="color: #0284c7;">23.19%</div>
+                <div class="label">Accuracy</div>
+            </div>
+            <div class="metric-card">
+                <div class="value">0.021s</div>
+                <div class="label">Avg Response Time</div>
+            </div>
+        </div>
+
+        <!-- Category Performance -->
+        <div class="card">
+            <h2>Category-Wise Performance</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Total</th>
+                        <th>Pass</th>
+                        <th>Partial</th>
+                        <th>Fail</th>
+                        <th>Accuracy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr>
+                <td><strong>Faculty Workload</strong></td>
+                <td>10</td>
+                <td><span class="badge badge-pass">6</span></td>
+                <td><span class="badge badge-partial">2</span></td>
+                <td><span class="badge badge-fail">0</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 60.0%; background-color: #eab308;"></div>
+                    </div>
+                    <span>60.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><strong>Department Workload</strong></td>
+                <td>8</td>
+                <td><span class="badge badge-pass">3</span></td>
+                <td><span class="badge badge-partial">1</span></td>
+                <td><span class="badge badge-fail">2</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 37.5%; background-color: #ef4444;"></div>
+                    </div>
+                    <span>37.5%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><strong>Workload Policies</strong></td>
+                <td>7</td>
+                <td><span class="badge badge-pass">2</span></td>
+                <td><span class="badge badge-partial">2</span></td>
+                <td><span class="badge badge-fail">2</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 28.57%; background-color: #ef4444;"></div>
+                    </div>
+                    <span>28.57%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><strong>Leave Management</strong></td>
+                <td>6</td>
+                <td><span class="badge badge-pass">2</span></td>
+                <td><span class="badge badge-partial">2</span></td>
+                <td><span class="badge badge-fail">2</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 33.33%; background-color: #ef4444;"></div>
+                    </div>
+                    <span>33.33%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><strong>Assignment Management</strong></td>
+                <td>7</td>
+                <td><span class="badge badge-pass">2</span></td>
+                <td><span class="badge badge-partial">2</span></td>
+                <td><span class="badge badge-fail">0</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 28.57%; background-color: #ef4444;"></div>
+                    </div>
+                    <span>28.57%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><strong>Timetable</strong></td>
+                <td>10</td>
+                <td><span class="badge badge-pass">0</span></td>
+                <td><span class="badge badge-partial">0</span></td>
+                <td><span class="badge badge-fail">1</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 0.0%; background-color: #ef4444;"></div>
+                    </div>
+                    <span>0.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><strong>Subject Retrieval</strong></td>
+                <td>6</td>
+                <td><span class="badge badge-pass">1</span></td>
+                <td><span class="badge badge-partial">0</span></td>
+                <td><span class="badge badge-fail">5</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 16.67%; background-color: #ef4444;"></div>
+                    </div>
+                    <span>16.67%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><strong>Advanced Reasoning</strong></td>
+                <td>8</td>
+                <td><span class="badge badge-pass">0</span></td>
+                <td><span class="badge badge-partial">2</span></td>
+                <td><span class="badge badge-fail">0</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 0.0%; background-color: #ef4444;"></div>
+                    </div>
+                    <span>0.0%</span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><strong>Hallucination Prevention</strong></td>
+                <td>7</td>
+                <td><span class="badge badge-pass">0</span></td>
+                <td><span class="badge badge-partial">0</span></td>
+                <td><span class="badge badge-fail">6</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 0.0%; background-color: #ef4444;"></div>
+                    </div>
+                    <span>0.0%</span>
+                </td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Failed Questions Analysis -->
+        <div class="card">
+            <h2>Failed & Unresolved Questions Diagnostic Report</h2>
+            
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q003 (Faculty Workload):</strong> Is Dr. Meera Nair exceeding her workload limit?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Yes. Actual workload is 15 hours, maximum workload is 12 hours, and excess workload is 3 hours.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Policy Compliance Assessment for Dr. Meera Nair (FAC001)
+- **Designation:** Professor
+- **Actual Teaching Hours:** 15.0 hrs
+- **Standard Policy Max Limit:** 12.0 hrs
+- **Approved Policy Exceptions:** None found. No approved exception exists to raise the maximum policy limit.
+- **Approved Exempti</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Factual verification failed. Missing entities (1/2 found).</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Provide the required relational context to the response generator.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q005 (Faculty Workload):</strong> Which faculty member has the highest teaching workload?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Aditya Bose (FAC009) and Manoj Joseph (FAC018) are tied at 19 hours each.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q007 (Faculty Workload):</strong> How many hours above the limit is Neha Reddy?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">2 hours. Actual workload is 18 hours and effective maximum is 16 hours.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Teaching Workload for Neha Reddy (FAC015)
+**Target Week:** 2026-11-09
+**Total Scheduled Teaching Hours:** **18.0 hours**
+
+**Calculation Basis (from Timetable):**
+- Lectures: 12.0 hrs
+- Tutorials: 3.0 hrs
+- Laboratories: 3.0 hrs
+
+*Note: Cancelled sessions are excluded. Academic responsibilities (</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Calculated workload numbers differed from ground truth. Matched 1 of 3 numbers.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect numerical calculations</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Verify calculation query filters for Active vs Substituted sessions and exclude Cancelled sessions.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q008 (Faculty Workload):</strong> What is the effective workload limit of a Professor?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">12 teaching hours per week.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q014 (Department Workload):</strong> How many faculty members in Data Science exceed their workload limits?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">3.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Department Workload Violations (DEP-DS)
+Total Faculty Exceeding Maximum Limit: **3**
+
+| Faculty ID | Name | Designation | Actual Hours | Effective Limit | Excess Hours |
+|---|---|---|---|---|---|
+| FAC014 | Sanjay Kulkarni | Associate Professor | 15.0 hrs | 14.0 hrs | **+1.0 hrs** |
+| FAC015 | N</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Factual verification failed. Missing entities (0/1 found).</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Provide the required relational context to the response generator.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q015 (Department Workload):</strong> Which department has the highest number of workload violations?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">CSE, with 4 violations.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q016 (Department Workload):</strong> List all faculty members who violate workload policy across all departments.
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">FAC001, FAC002, FAC004, FAC005, FAC007, FAC008, FAC014, FAC015, and FAC018.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q017 (Department Workload):</strong> How many faculty members are there in the dataset?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">18.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Calculated workload numbers differed from ground truth. Matched 0 of 1 numbers.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect numerical calculations</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Verify calculation query filters for Active vs Substituted sessions and exclude Cancelled sessions.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q018 (Department Workload):</strong> How many departments are present?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">3 departments: CSE, AIML, and Data Science.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Calculated workload numbers differed from ground truth. Matched 0 of 1 numbers.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect numerical calculations</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Verify calculation query filters for Active vs Substituted sessions and exclude Cancelled sessions.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q019 (Workload Policies):</strong> Does an approved HOD exemption increase the maximum teaching-hour limit?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. Approved teaching relief reduces the minimum teaching expectation only. It does not increase the maximum limit.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Department Workload Exemptions (ALL)
+Total Workload Exemptions: **4**
+
+| ID | Faculty ID | Responsibility | Relief Hours/Week | Approved By | Valid Until |
+|---|---|---|---|---|---|
+| EX001 | FAC001 | HOD | 4.0 hrs | Dr. Meera Nair | 2027-06-30 |
+| EX002 | FAC007 | HOD | 4.0 hrs | Registrar | 20</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Failed logical negative assertion. The model affirmed a violation or inclusion when policy dictates 'No'.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect policy interpretation</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Update policy reasoning rule to ensure negative/exclusion criteria are strictly verified.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q021 (Workload Policies):</strong> What is Aditya Bose's effective maximum workload?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">20 hours per week due to approved policy exception PEX001.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Workload Policy for Assistant Professor
+- **Policy ID:** POL-ASST
+- **Standard Maximum Teaching Hours:** **16.0 hrs/week**
+- **Minimum Expected Teaching Hours:** **10.0 hrs/week**
+- **Calculation Rule:** Teaching hours are counted by actual scheduled duration. Approved teaching relief may reduce</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Failed policy or exemption verification.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect policy interpretation</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure policy rules state that exemptions only reduce minimum expectations and do not raise max limits.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q022 (Workload Policies):</strong> Is Karthik Bhat's policy exception approved?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. PEX002 is Pending.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Institutional Policy Exceptions
+Total Exceptions Recorded: **3**
+
+| ID | Faculty ID | Status | Max Hours Cap | Approved By | Valid Until | Reason |
+|---|---|---|---|---|---|---|
+| PEX001 | FAC009 | ✅ Approved | 20.0 hrs | DEAN001 | 2026-11-30 | Temporary additional lab allocation approved by Dea</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Failed policy or exemption verification.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect policy interpretation</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure policy rules state that exemptions only reduce minimum expectations and do not raise max limits.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q023 (Workload Policies):</strong> Should a pending policy exception override the standard workload limit?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. Only approved and currently valid policy exceptions should override the standard limit.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Institutional Policy Exceptions
+Total Exceptions Recorded: **3**
+
+| ID | Faculty ID | Status | Max Hours Cap | Approved By | Valid Until | Reason |
+|---|---|---|---|---|---|---|
+| PEX001 | FAC009 | ✅ Approved | 20.0 hrs | DEAN001 | 2026-11-30 | Temporary additional lab allocation approved by Dea</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Failed policy or exemption verification.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect policy interpretation</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure policy rules state that exemptions only reduce minimum expectations and do not raise max limits.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q024 (Workload Policies):</strong> What happens when a faculty member exceeds their effective workload limit?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">A workload policy violation must be reported.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q026 (Leave Management):</strong> Which faculty member has approved medical leave on 2026-11-12?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Ishita Kapoor (FAC010).</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Department Leave Records (ALL)
+Total Leave Records: **1**
+
+| Leave ID | Faculty ID | Type | Start Date | End Date | Status |
+|---|---|---|---|---|---|
+| LV002 | FAC010 | Medical Leave | 2026-11-12 | 2026-11-12 | Approved |
+
+[Data Source: Worksheet 'Leave_Records' (Record: leave_id=LEV-ALL)]</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Missing leave record entity. Expected ['Ishita Kapoor', 'FAC010'].</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect Excel retrieval</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure Leave_Records sheet is queried with matching date and faculty_id.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q028 (Leave Management):</strong> Does Karthik Bhat have approved leave on 2026-11-13?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. His Official Duty leave is Pending and has not been approved.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Department Leave Records (ALL)
+Total Leave Records: **1**
+
+| Leave ID | Faculty ID | Type | Start Date | End Date | Status |
+|---|---|---|---|---|---|
+| LV003 | FAC016 | Official Duty | 2026-11-13 | 2026-11-13 | Pending |
+
+[Data Source: Worksheet 'Leave_Records' (Record: leave_id=LEV-ALL)]</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Missing leave record entity. Expected ['No', 'Pending'].</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect Excel retrieval</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure Leave_Records sheet is queried with matching date and faculty_id.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q029 (Leave Management):</strong> Which faculty member has rejected leave in December 2026?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Kavya Sharma (FAC003). Her Earned Leave from December 2 to December 4 was Rejected.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Department Leave Records (ALL)
+Total Leave Records: **3**
+
+| Leave ID | Faculty ID | Type | Start Date | End Date | Status |
+|---|---|---|---|---|---|
+| LV001 | FAC004 | Casual Leave | 2026-11-11 | 2026-11-11 | Approved |
+| LV002 | FAC010 | Medical Leave | 2026-11-12 | 2026-11-12 | Approved |
+| </pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Missing leave record entity. Expected ['Kavya Sharma', 'FAC003', 'Rejected'].</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect Excel retrieval</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure Leave_Records sheet is queried with matching date and faculty_id.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q031 (Leave Management):</strong> Which faculty member has approved leave on November 20?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Farah Khan (FAC017). Her replacement is Neha Reddy (FAC015).</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Department Leave Records (ALL)
+Total Leave Records: **3**
+
+| Leave ID | Faculty ID | Type | Start Date | End Date | Status |
+|---|---|---|---|---|---|
+| LV001 | FAC004 | Casual Leave | 2026-11-11 | 2026-11-11 | Approved |
+| LV002 | FAC010 | Medical Leave | 2026-11-12 | 2026-11-12 | Approved |
+| </pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Missing leave record entity. Expected ['Farah Khan', 'FAC017', 'Neha Reddy', 'FAC015'].</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect Excel retrieval</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure Leave_Records sheet is queried with matching date and faculty_id.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q033 (Assignment Management):</strong> What is Dr. Meera Nair's pending assignment?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Internal Assessment Evaluation for CS501, due on 2026-11-12.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Academic Assignments for Dr. Meera Nair (FAC001)
+Total Assigned: 1
+Status Breakdown: Pending: 1
+Type Breakdown: Internal Assessment Evaluation: 1
+
+| ID | Assignment Type | Subject | Due Date | Priority | Status | Overdue? |
+|---|---|---|---|---|---|---|
+| AS-FAC001-1 | Internal Assessment Evalua</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Factual verification failed. Missing entities (1/2 found).</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Provide the required relational context to the response generator.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q034 (Assignment Management):</strong> What is the status of her Question Paper Preparation assignment?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">In Progress. It is for CS502 and is due on 2026-11-13.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q036 (Assignment Management):</strong> What is the status of Arjun Menon's Exam Invigilation assignment?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Pending. Due date: 2026-11-15.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Academic Assignments for Arjun Menon (FAC002)
+Total Assigned: 3
+Status Breakdown: In Progress: 1, Completed: 1, Pending: 1
+Type Breakdown: Question Paper Preparation: 1, Project Supervision: 1, Exam Invigilation: 1
+
+| ID | Assignment Type | Subject | Due Date | Priority | Status | Overdue? |
+|--</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Factual verification failed. Missing entities (1/2 found).</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Provide the required relational context to the response generator.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q037 (Assignment Management):</strong> How many assignments are present in the dataset?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">54.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q038 (Assignment Management):</strong> How many assignments does each faculty member have?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">3 assignments per faculty member.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q039 (Timetable):</strong> How many timetable records are present?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">281.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID specified or associated with user context.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID specified or associated with user context.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q040 (Timetable):</strong> How many timetable sessions are Active?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">277.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID specified or associated with user context.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID specified or associated with user context.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q041 (Timetable):</strong> Are cancelled sessions included in workload calculations?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. Cancelled sessions must be excluded.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: Faculty with ID 'None' not found.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: Faculty with ID 'None' not found.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q042 (Timetable):</strong> Do laboratory hours count towards teaching workload?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Yes. Laboratory hours count at actual scheduled duration, with a weight of 1.0.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q043 (Timetable):</strong> Do tutorial hours count towards teaching workload?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Yes. Tutorial hours count at actual scheduled duration, with a weight of 1.0.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q044 (Timetable):</strong> Does project supervision count as weekly teaching workload?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. It is tracked separately as an assignment or responsibility.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q045 (Timetable):</strong> Does exam invigilation count towards weekly teaching hours?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. It is tracked separately as examination duty.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q046 (Timetable):</strong> How are substituted sessions counted?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">The workload is credited to the substitute faculty member, not the original faculty member.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: Faculty with ID 'None' not found.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: Faculty with ID 'None' not found.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q047 (Timetable):</strong> What is the workload calculation period?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Weekly.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q048 (Timetable):</strong> What is the academic year?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">2026-27.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Factual verification failed. Missing entities (0/1 found).</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Provide the required relational context to the response generator.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q049 (Subject Retrieval):</strong> Which subject has ID CS501?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Operating Systems.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Subject details missing. Expected ['Operating Systems', 'CS501'].</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect sheet selection</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Query the 'Subjects' table directly using subject_id or subject_name.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q050 (Subject Retrieval):</strong> Which department offers AI501?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Artificial Intelligence and Machine Learning (AIML).</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Subject details missing. Expected ['Artificial Intelligence and Machine Learning', 'AIML'].</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect sheet selection</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Query the 'Subjects' table directly using subject_id or subject_name.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q051 (Subject Retrieval):</strong> What is the subject name for DS503?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Data Visualization.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Subject details missing. Expected ['Data Visualization', 'DS503'].</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect sheet selection</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Query the 'Subjects' table directly using subject_id or subject_name.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q052 (Subject Retrieval):</strong> Which subject is associated with AI504?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Computer Vision.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Subject details missing. Expected ['Computer Vision', 'AI504'].</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect sheet selection</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Query the 'Subjects' table directly using subject_id or subject_name.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q054 (Subject Retrieval):</strong> Which semester is CS503 offered in?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Semester 7.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Subject details missing. Expected ['Semester 7'].</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Incorrect sheet selection</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Query the 'Subjects' table directly using subject_id or subject_name.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q055 (Advanced Reasoning):</strong> If a faculty member teaches 18 hours and has a maximum limit of 16 hours, how much excess workload do they have?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">2 hours.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q056 (Advanced Reasoning):</strong> If a faculty member has 19 hours and an approved maximum override of 20 hours, is there a violation?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. The faculty member is within the approved limit.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q057 (Advanced Reasoning):</strong> If a policy exception is Pending, should it be considered when calculating the effective maximum?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. Pending exceptions must not override the standard policy.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Institutional Policy Exceptions
+Total Exceptions Recorded: **3**
+
+| ID | Faculty ID | Status | Max Hours Cap | Approved By | Valid Until | Reason |
+|---|---|---|---|---|---|---|
+| PEX001 | FAC009 | ✅ Approved | 20.0 hrs | DEAN001 | 2026-11-30 | Temporary additional lab allocation approved by Dea</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Logical reasoning did not match policy rules.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">LLM reasoning failure</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure prompt or deterministic rule applies effective limit = standard limit + approved exceptions.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q058 (Advanced Reasoning):</strong> Does a faculty member with 12 teaching hours violate the Professor workload policy?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. The Professor maximum is 12 hours. The faculty member is exactly at the maximum.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q059 (Advanced Reasoning):</strong> If a one-hour lecture is cancelled, should it count towards workload?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: Faculty with ID 'None' not found.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: Faculty with ID 'None' not found.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q060 (Advanced Reasoning):</strong> If a faculty member conducts a two-hour laboratory, how many teaching hours should be counted?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">2 hours.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: No faculty ID provided or authenticated.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: No faculty ID provided or authenticated.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-error">ERROR</span>
+                        <strong>Q061 (Advanced Reasoning):</strong> If a substitute conducts a one-hour class, who receives the workload credit?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">The substitute faculty member receives one teaching hour. The original faculty member does not receive the credit.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>An error occurred while retrieving data: Faculty with ID 'None' not found.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Inference engine returned an error: Faculty with ID 'None' not found.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">API or execution error</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Inspect service logs and ensure database/LLM connectivity.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-partial">PARTIAL</span>
+                        <strong>Q062 (Advanced Reasoning):</strong> Can an HOD's administrative relief be added to the maximum workload limit?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">No. Approved administrative relief reduces the minimum teaching expectation only.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I could not find sufficient information in the available institutional dataset to answer this question accurately. (No policy limit found for specified role)</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Logical reasoning did not match policy rules.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">LLM reasoning failure</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure prompt or deterministic rule applies effective limit = standard limit + approved exceptions.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-hallucination">HALLUCINATION</span>
+                        <strong>Q063 (Hallucination Prevention):</strong> What is the salary of Dr. Meera Nair?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Salary information is not available in the dataset. The LLM must not invent a salary.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Model fabricated nonexistent information for missing dataset attribute: Invented a numerical salary figure.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Hallucination</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Add strict guardrails instructing model to state that the dataset does not contain this attribute.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q064 (Hallucination Prevention):</strong> What is the home address of FAC001?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Home address information is not available in the dataset.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Did not state that information is unavailable in the dataset.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q065 (Hallucination Prevention):</strong> What is the age of Arjun Menon?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Age information is not available in the dataset.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Did not state that information is unavailable in the dataset.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q066 (Hallucination Prevention):</strong> What is the attendance percentage of FAC005?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">Attendance percentage is not available in the dataset.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Did not state that information is unavailable in the dataset.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q067 (Hallucination Prevention):</strong> What was the workload of FAC001 in November 2025?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">The dataset does not contain November-specific records for 2025. It contains historical academic-year and term-level aggregates for 2024-25 and 2025-26. The LLM must not invent a November-specific value.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>### Teaching Workload for Dr. Meera Nair (FAC001)
+**Target Week:** 2026-11-09
+**Total Scheduled Teaching Hours:** **15.0 hours**
+
+**Calculation Basis (from Timetable):**
+- Lectures: 10.0 hrs
+- Tutorials: 2.0 hrs
+- Laboratories: 3.0 hrs
+
+*Note: Cancelled sessions are excluded. Academic responsibiliti</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Did not state that information is unavailable in the dataset.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q068 (Hallucination Prevention):</strong> What is the GPA of FAC007?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">GPA information is not available in the dataset.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Did not state that information is unavailable in the dataset.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.</em></div>
+                    </div>
+                </div>
+                
+                <div class="fail-card">
+                    <div class="fail-header">
+                        <span class="badge badge-fail">FAIL</span>
+                        <strong>Q069 (Hallucination Prevention):</strong> Who is the Dean of the university?
+                    </div>
+                    <div class="fail-body">
+                        <div class="row"><strong>Expected:</strong> <span class="text-expected">The Dean's identity is not established by the available dataset. DEAN001 appears as an approver identifier, but no corresponding Dean name is provided.</span></div>
+                        <div class="row"><strong>Actual:</strong> <pre>I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.</pre></div>
+                        <div class="row"><strong>What Went Wrong:</strong> Did not state that information is unavailable in the dataset.</div>
+                        <div class="row"><strong>Failure Category:</strong> <span class="tag">Missing context</span></div>
+                        <div class="row"><strong>Suggested Correction:</strong> <em>Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.</em></div>
+                    </div>
+                </div>
+                
+        </div>
+
+        <!-- All Questions Table -->
+        <div class="card">
+            <h2>Complete Question-Wise Audit Log (69 Test Cases)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Category</th>
+                        <th>Question</th>
+                        <th>Status</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                        <th>Evaluation Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr>
+                <td><code>Q001</code></td>
+                <td>Faculty Workload</td>
+                <td>How many teaching hours does FAC001 have for the week starting 2026-11-09?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.078s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q002</code></td>
+                <td>Faculty Workload</td>
+                <td>What is the weekly teaching workload of Arjun Menon?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.033s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q003</code></td>
+                <td>Faculty Workload</td>
+                <td>Is Dr. Meera Nair exceeding her workload limit?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>75</strong></td>
+                <td>0.022s</td>
+                <td><small>Response is partially correct. Matched 3/3 numbers and 1/2 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q004</code></td>
+                <td>Faculty Workload</td>
+                <td>What is the workload of Aditya Bose?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.026s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q005</code></td>
+                <td>Faculty Workload</td>
+                <td>Which faculty member has the highest teaching workload?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.021s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q006</code></td>
+                <td>Faculty Workload</td>
+                <td>Is Kavya Sharma violating the workload policy?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.027s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q007</code></td>
+                <td>Faculty Workload</td>
+                <td>How many hours above the limit is Neha Reddy?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>75</strong></td>
+                <td>0.023s</td>
+                <td><small>Response is partially correct. Matched 1/3 numbers and 2/2 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q008</code></td>
+                <td>Faculty Workload</td>
+                <td>What is the effective workload limit of a Professor?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.014s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q009</code></td>
+                <td>Faculty Workload</td>
+                <td>What is the maximum workload for an Associate Professor?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.016s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q010</code></td>
+                <td>Faculty Workload</td>
+                <td>What is the maximum workload for a Lecturer?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.014s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q011</code></td>
+                <td>Department Workload</td>
+                <td>Which faculty members in DEP-CSE exceed their policy limits?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.147s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q012</code></td>
+                <td>Department Workload</td>
+                <td>How many faculty members in CSE violate workload policy?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.09s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q013</code></td>
+                <td>Department Workload</td>
+                <td>Which faculty members in AIML exceed their workload limits?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.08s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q014</code></td>
+                <td>Department Workload</td>
+                <td>How many faculty members in Data Science exceed their workload limits?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>50</strong></td>
+                <td>0.063s</td>
+                <td><small>Response is partially correct. Matched 1/1 numbers and 0/1 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q015</code></td>
+                <td>Department Workload</td>
+                <td>Which department has the highest number of workload violations?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.014s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q016</code></td>
+                <td>Department Workload</td>
+                <td>List all faculty members who violate workload policy across all departments.</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.014s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q017</code></td>
+                <td>Department Workload</td>
+                <td>How many faculty members are there in the dataset?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.001s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q018</code></td>
+                <td>Department Workload</td>
+                <td>How many departments are present?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.001s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q019</code></td>
+                <td>Workload Policies</td>
+                <td>Does an approved HOD exemption increase the maximum teaching-hour limit?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.016s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q020</code></td>
+                <td>Workload Policies</td>
+                <td>What is Dr. Meera Nair's approved weekly workload relief?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.016s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q021</code></td>
+                <td>Workload Policies</td>
+                <td>What is Aditya Bose's effective maximum workload?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.039s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q022</code></td>
+                <td>Workload Policies</td>
+                <td>Is Karthik Bhat's policy exception approved?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>75</strong></td>
+                <td>0.015s</td>
+                <td><small>Response is partially correct. Matched 0/0 numbers and 2/3 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q023</code></td>
+                <td>Workload Policies</td>
+                <td>Should a pending policy exception override the standard workload limit?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>75</strong></td>
+                <td>0.017s</td>
+                <td><small>Response is partially correct. Matched 0/0 numbers and 1/2 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q024</code></td>
+                <td>Workload Policies</td>
+                <td>What happens when a faculty member exceeds their effective workload limit?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.018s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q025</code></td>
+                <td>Workload Policies</td>
+                <td>What is the standard maximum workload for an Assistant Professor?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.015s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q026</code></td>
+                <td>Leave Management</td>
+                <td>Which faculty member has approved medical leave on 2026-11-12?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>50</strong></td>
+                <td>0.024s</td>
+                <td><small>Response is partially correct. Matched 0/0 numbers and 1/2 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q027</code></td>
+                <td>Leave Management</td>
+                <td>Who replaces Ishita Kapoor during her medical leave?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.024s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q028</code></td>
+                <td>Leave Management</td>
+                <td>Does Karthik Bhat have approved leave on 2026-11-13?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>75</strong></td>
+                <td>0.018s</td>
+                <td><small>Response is partially correct. Matched 0/0 numbers and 1/2 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q029</code></td>
+                <td>Leave Management</td>
+                <td>Which faculty member has rejected leave in December 2026?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.019s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q030</code></td>
+                <td>Leave Management</td>
+                <td>Who is replacing Rahul Das during his approved leave on November 11?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.021s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q031</code></td>
+                <td>Leave Management</td>
+                <td>Which faculty member has approved leave on November 20?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.021s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q032</code></td>
+                <td>Assignment Management</td>
+                <td>How many assignments are assigned to Dr. Meera Nair?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.023s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q033</code></td>
+                <td>Assignment Management</td>
+                <td>What is Dr. Meera Nair's pending assignment?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>50</strong></td>
+                <td>0.022s</td>
+                <td><small>Response is partially correct. Matched 0/0 numbers and 1/2 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q034</code></td>
+                <td>Assignment Management</td>
+                <td>What is the status of her Question Paper Preparation assignment?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.019s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q035</code></td>
+                <td>Assignment Management</td>
+                <td>Which assignments are assigned to Arjun Menon?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.019s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q036</code></td>
+                <td>Assignment Management</td>
+                <td>What is the status of Arjun Menon's Exam Invigilation assignment?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>50</strong></td>
+                <td>0.017s</td>
+                <td><small>Response is partially correct. Matched 0/0 numbers and 1/2 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q037</code></td>
+                <td>Assignment Management</td>
+                <td>How many assignments are present in the dataset?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.015s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q038</code></td>
+                <td>Assignment Management</td>
+                <td>How many assignments does each faculty member have?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.016s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q039</code></td>
+                <td>Timetable</td>
+                <td>How many timetable records are present?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.016s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID specified or associated with user context.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q040</code></td>
+                <td>Timetable</td>
+                <td>How many timetable sessions are Active?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.016s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID specified or associated with user context.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q041</code></td>
+                <td>Timetable</td>
+                <td>Are cancelled sessions included in workload calculations?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.019s</td>
+                <td><small>Execution failed or produced empty response: Faculty with ID 'None' not found.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q042</code></td>
+                <td>Timetable</td>
+                <td>Do laboratory hours count towards teaching workload?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.014s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q043</code></td>
+                <td>Timetable</td>
+                <td>Do tutorial hours count towards teaching workload?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.015s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q044</code></td>
+                <td>Timetable</td>
+                <td>Does project supervision count as weekly teaching workload?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.016s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q045</code></td>
+                <td>Timetable</td>
+                <td>Does exam invigilation count towards weekly teaching hours?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.014s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q046</code></td>
+                <td>Timetable</td>
+                <td>How are substituted sessions counted?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.016s</td>
+                <td><small>Execution failed or produced empty response: Faculty with ID 'None' not found.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q047</code></td>
+                <td>Timetable</td>
+                <td>What is the workload calculation period?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.013s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q048</code></td>
+                <td>Timetable</td>
+                <td>What is the academic year?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.001s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q049</code></td>
+                <td>Subject Retrieval</td>
+                <td>Which subject has ID CS501?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.001s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q050</code></td>
+                <td>Subject Retrieval</td>
+                <td>Which department offers AI501?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.001s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q051</code></td>
+                <td>Subject Retrieval</td>
+                <td>What is the subject name for DS503?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.001s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q052</code></td>
+                <td>Subject Retrieval</td>
+                <td>Which subject is associated with AI504?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.001s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q053</code></td>
+                <td>Subject Retrieval</td>
+                <td>How many subjects are available?</td>
+                <td><span class="badge badge-pass">PASS</span></td>
+                <td><strong>100</strong></td>
+                <td>0.011s</td>
+                <td><small>Response accurately reflects ground truth facts, numbers, and logical reasoning.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q054</code></td>
+                <td>Subject Retrieval</td>
+                <td>Which semester is CS503 offered in?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>0</strong></td>
+                <td>0.001s</td>
+                <td><small>Response failed factual verification. Missing required ground truth entities/values.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q055</code></td>
+                <td>Advanced Reasoning</td>
+                <td>If a faculty member teaches 18 hours and has a maximum limit of 16 hours, how much excess workload do they have?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.013s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q056</code></td>
+                <td>Advanced Reasoning</td>
+                <td>If a faculty member has 19 hours and an approved maximum override of 20 hours, is there a violation?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.014s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q057</code></td>
+                <td>Advanced Reasoning</td>
+                <td>If a policy exception is Pending, should it be considered when calculating the effective maximum?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>75</strong></td>
+                <td>0.014s</td>
+                <td><small>Response is partially correct. Matched 0/0 numbers and 1/2 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q058</code></td>
+                <td>Advanced Reasoning</td>
+                <td>Does a faculty member with 12 teaching hours violate the Professor workload policy?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.014s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q059</code></td>
+                <td>Advanced Reasoning</td>
+                <td>If a one-hour lecture is cancelled, should it count towards workload?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.018s</td>
+                <td><small>Execution failed or produced empty response: Faculty with ID 'None' not found.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q060</code></td>
+                <td>Advanced Reasoning</td>
+                <td>If a faculty member conducts a two-hour laboratory, how many teaching hours should be counted?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.016s</td>
+                <td><small>Execution failed or produced empty response: No faculty ID provided or authenticated.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q061</code></td>
+                <td>Advanced Reasoning</td>
+                <td>If a substitute conducts a one-hour class, who receives the workload credit?</td>
+                <td><span class="badge badge-error">ERROR</span></td>
+                <td><strong>0</strong></td>
+                <td>0.02s</td>
+                <td><small>Execution failed or produced empty response: Faculty with ID 'None' not found.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q062</code></td>
+                <td>Advanced Reasoning</td>
+                <td>Can an HOD's administrative relief be added to the maximum workload limit?</td>
+                <td><span class="badge badge-partial">PARTIAL</span></td>
+                <td><strong>75</strong></td>
+                <td>0.016s</td>
+                <td><small>Response is partially correct. Matched 0/0 numbers and 1/2 key entities.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q063</code></td>
+                <td>Hallucination Prevention</td>
+                <td>What is the salary of Dr. Meera Nair?</td>
+                <td><span class="badge badge-hallucination">HALLUCINATION</span></td>
+                <td><strong>0</strong></td>
+                <td>0.001s</td>
+                <td><small>Hallucination: Invented a numerical salary figure.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q064</code></td>
+                <td>Hallucination Prevention</td>
+                <td>What is the home address of FAC001?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>20</strong></td>
+                <td>0.001s</td>
+                <td><small>Model failed to explicitly acknowledge that the requested information is absent from the dataset.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q065</code></td>
+                <td>Hallucination Prevention</td>
+                <td>What is the age of Arjun Menon?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>20</strong></td>
+                <td>0.001s</td>
+                <td><small>Model failed to explicitly acknowledge that the requested information is absent from the dataset.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q066</code></td>
+                <td>Hallucination Prevention</td>
+                <td>What is the attendance percentage of FAC005?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>20</strong></td>
+                <td>0.001s</td>
+                <td><small>Model failed to explicitly acknowledge that the requested information is absent from the dataset.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q067</code></td>
+                <td>Hallucination Prevention</td>
+                <td>What was the workload of FAC001 in November 2025?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>20</strong></td>
+                <td>0.025s</td>
+                <td><small>Model failed to explicitly acknowledge that the requested information is absent from the dataset.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q068</code></td>
+                <td>Hallucination Prevention</td>
+                <td>What is the GPA of FAC007?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>20</strong></td>
+                <td>0.001s</td>
+                <td><small>Model failed to explicitly acknowledge that the requested information is absent from the dataset.</small></td>
+            </tr>
+            
+            <tr>
+                <td><code>Q069</code></td>
+                <td>Hallucination Prevention</td>
+                <td>Who is the Dean of the university?</td>
+                <td><span class="badge badge-fail">FAIL</span></td>
+                <td><strong>20</strong></td>
+                <td>0.001s</td>
+                <td><small>Model failed to explicitly acknowledge that the requested information is absent from the dataset.</small></td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

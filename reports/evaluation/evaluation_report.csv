@@ -1,0 +1,36 @@
+test_id,role,intent,question,expected_tool,expected_data_source,validation_expectation,passed,notes
+Q001,FACULTY,faculty_workload,How many teaching hours does FAC001 have in the week starting 2026-11-09?,get_teaching_hours,Timetable + Faculty + Workload_Rules,Compare with Workload_Summary.,True,Verified against dataset expectations.
+Q002,FACULTY,workload_violation,Am I exceeding my weekly teaching-hour limit?,get_workload_status,Users_Roles + Timetable + Workload_Policies + Policy_Exceptions,Compare actual hours with effective policy limit.,True,Verified against dataset expectations.
+Q003,HOD,workload_violation,Which faculty members in DEP-CSE exceed their policy limit?,get_policy_violations,Timetable + Faculty + Workload_Policies + Policy_Exceptions,Return only department records.,True,Verified against dataset expectations.
+Q004,ADMIN,institution_analytics,Which department has the highest total scheduled teaching hours?,get_institutional_analytics,Timetable + Faculty,Aggregate Active and Substituted teaching hours.,True,Verified against dataset expectations.
+Q005,FACULTY,timetable_lookup,What classes do I have on Wednesday?,get_faculty_timetable,Timetable,"Show time, subject, section, room.",True,Verified against dataset expectations.
+Q006,FACULTY,pending_assignment_lookup,Which assignments are pending for me?,get_faculty_assignments,Assignments + Users_Roles,Do not show other faculty assignments.,True,Verified against dataset expectations.
+Q007,HOD,leave_lookup,Who is on approved leave in my department this week?,get_faculty_leave,Leave_Records + Faculty + Academic_Calendar,Pending/rejected leave is not approved absence.,True,Verified against dataset expectations.
+Q008,FACULTY,substitute_lookup,Who is substituting my cancelled class?,get_substitute_allocations,Timetable + Leave_Records,Return substitute faculty and class details.,True,Verified against dataset expectations.
+Q009,HOD,exemption_lookup,Which workload exemptions are approved in my department?,get_workload_exemptions,Workload_Exemptions + Faculty,Do not treat Pending exemption as approved.,True,Verified against dataset expectations.
+Q010,ADMIN,historical_workload,Show workload changes for FAC001 over the last four semesters.,get_historical_workload,Historical_Workload + Faculty,Historical values are synthetic aggregates.,True,Verified against dataset expectations.
+Q011,FACULTY,policy_lookup,What is the maximum teaching workload for my designation?,get_policy,Workload_Policies + Faculty,"Cite policy ID, validity and source page.",True,Verified against dataset expectations.
+Q012,HOD,timetable_conflict,Are there any timetable conflicts in my department?,detect_timetable_conflicts,Timetable + Faculty + Sections + Rooms,Do not claim conflict unless intervals overlap.,True,Verified against dataset expectations.
+Q013,ADMIN,exception_lookup,"Which policy exceptions are approved, pending, and rejected?",get_policy_exceptions,Policy_Exceptions,Only approved and valid exceptions can override max hours.,True,Verified against dataset expectations.
+Q014,FACULTY,assignment_lookup,How many project supervision and exam duties are assigned to me?,get_faculty_assignments,Assignments + Workload_Rules,Separate academic duties from teaching hours.,True,Verified against dataset expectations.
+Q015,ADMIN,academic_calendar,How many working and examination days are in the academic calendar?,get_academic_events,Academic_Calendar,"Distinguish teaching, assessment, examination and vacation.",True,Verified against dataset expectations.
+SCEN-01,FACULTY,faculty_workload,How many hours am I teaching this week?,faculty_workload,Worksheets + Engines,17.0 hours,True,Scenario SCEN-01 successfully verified.
+SCEN-02,FACULTY,workload_violation,Am I exceeding the workload policy?,workload_violation,Worksheets + Engines,exceed,True,Scenario SCEN-02 successfully verified.
+SCEN-03,HOD,department_analytics,Show department-wide workload for DEP-CSE,department_analytics,Worksheets + Engines,DEP-CSE,True,Scenario SCEN-03 successfully verified.
+SCEN-04,ADMIN,institution_analytics,Show institution-wide workload comparison,institution_analytics,Worksheets + Engines,Highest Total Scheduled,True,Scenario SCEN-04 successfully verified.
+SCEN-05,FACULTY,assignment_lookup,Show assignments for FAC001,assignment_lookup,Worksheets + Engines,Access Denied,True,Scenario SCEN-05 successfully verified.
+SCEN-06,HOD,department_analytics,Show department workload for DEP-AIML,department_analytics,Worksheets + Engines,Access Denied,True,Scenario SCEN-06 successfully verified.
+SCEN-07,FACULTY,leave_lookup,Show my leave records,leave_lookup,Worksheets + Engines,Pending,True,Scenario SCEN-07 successfully verified.
+SCEN-08,FACULTY,leave_lookup,Show my approved leave status,leave_lookup,Worksheets + Engines,Approved,True,Scenario SCEN-08 successfully verified.
+SCEN-09,FACULTY,substitute_lookup,Who is substituting my cancelled class?,substitute_lookup,Worksheets + Engines,Sneha Thomas,True,Scenario SCEN-09 successfully verified.
+SCEN-10,FACULTY,exception_lookup,Show my policy exceptions,exception_lookup,Worksheets + Engines,Rejected,True,Scenario SCEN-10 successfully verified.
+SCEN-11,HOD,workload_violation,Which faculty members in DEP-CSE exceed policy limits?,workload_violation,Worksheets + Engines,FAC001,True,Scenario SCEN-11 successfully verified.
+SCEN-12,ADMIN,institution_analytics,Which department has the highest total scheduled teaching hours?,institution_analytics,Worksheets + Engines,DEP-CSE,True,Scenario SCEN-12 successfully verified.
+SCEN-13,FACULTY,historical_workload,Show my historical workload trends,historical_workload,Worksheets + Engines,HISTORICAL,True,Scenario SCEN-13 successfully verified.
+SCEN-14,FACULTY,policy_lookup,What is the workload rule for laboratory sessions?,policy_lookup,Worksheets + Engines,Laboratory,True,Scenario SCEN-14 successfully verified.
+SCEN-15,FACULTY,policy_lookup,What is the policy for Dean of Astronomy?,policy_lookup,Worksheets + Engines,could not be found,True,Scenario SCEN-15 successfully verified.
+SCEN-16,ADMIN,faculty_lookup,Show details for faculty FAC999,faculty_lookup,Worksheets + Engines,not found,True,Scenario SCEN-16 successfully verified.
+SCEN-17,FACULTY,historical_workload,Show historical workload for 2015-16,historical_workload,Worksheets + Engines,HISTORICAL,True,Scenario SCEN-17 successfully verified.
+SCEN-18,FACULTY,substitute_lookup,What classes of mine have been cancelled?,substitute_lookup,Worksheets + Engines,TT0053,True,Scenario SCEN-18 successfully verified.
+SCEN-19,FACULTY,pending_assignment_lookup,Which assignments are pending for me?,pending_assignment_lookup,Worksheets + Engines,Pending,True,Scenario SCEN-19 successfully verified.
+SCEN-20,HOD,timetable_conflict,Are there any timetable conflicts in my department?,timetable_conflict,Worksheets + Engines,Conflict,True,Scenario SCEN-20 successfully verified.

@@ -1,0 +1,41 @@
+============================================================
+       FACULTY WORKLOAD ASSISTANT — RBAC SECURITY AUDIT
+============================================================
+Timestamp: 2026-11-12T09:48:02.432332
+Scenarios Tested : 7
+Passed           : 7
+Failed           : 0
+Pass Rate        : 100.0%
+Execution Time   : 0.1 seconds
+
+SCENARIO DETAILS:
+------------------------------------------------------------
+[PASS] SEC-01: Faculty Own Record Access
+       Description: Faculty users can access their own records only.
+       Result: Faculty user successfully accessed their own teaching workload records.
+
+[PASS] SEC-02: Faculty Cross-Record Access Denial
+       Description: Faculty users cannot access another faculty member's private records.
+       Result: Access correctly denied when faculty attempted to access another faculty member's records.
+
+[PASS] SEC-03: HOD Own Department Access
+       Description: HOD users can access records within their own department.
+       Result: HOD successfully accessed department-level analytics for their own department.
+
+[PASS] SEC-04: HOD Cross-Department Access Denial
+       Description: HOD users cannot access another department's restricted records.
+       Result: Access correctly denied when HOD attempted to view another department's records.
+
+[PASS] SEC-05: Admin University-Wide Access
+       Description: Admin users can access university-wide records.
+       Result: Admin user successfully accessed university-wide institutional workload comparison.
+
+[PASS] SEC-06: Leave Approval Integrity
+       Description: Pending and rejected leave records are not treated as approved leave.
+       Result: Verified: All 1 filtered records strictly have approval_status='Approved'. Pending/Rejected leaves excluded.
+
+[PASS] SEC-07: Policy Exception Override Integrity
+       Description: Pending and rejected policy exceptions do not override workload limits.
+       Result: Verified: Pending policy exception PEX002 (19.0 hrs) for FAC016 was ignored. Effective limit remains 16.0 hrs.
+
+============================================================

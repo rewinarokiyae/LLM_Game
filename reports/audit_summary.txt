@@ -1,0 +1,502 @@
+============================================================
+       FACULTY WORKLOAD LLM - AUDIT REPORT
+============================================================
+Run ID                : RUN_20261112_102244_fbf32a
+Timestamp             : 2026-11-12T10:22:45.293604
+LLM Provider          : Deterministic Offline Mode (LLM Not Connected)
+Total Questions       : 69
+Passed                : 16
+Partially Correct     : 11
+Failed                : 18
+Hallucinations        : 1
+Execution Errors      : 23
+
+Overall Accuracy      : 23.19%
+Strict Accuracy       : 23.19%
+Average Response Time : 0.007 seconds
+Weakest Category      : Timetable
+
+============================================================
+CATEGORY-WISE RESULTS
+============================================================
+Faculty Workload                    :  60.0% (6/10)
+Department Workload                 :  37.5% (3/8)
+Workload Policies                   :  28.6% (2/7)
+Leave Management                    :  33.3% (2/6)
+Assignment Management               :  28.6% (2/7)
+Timetable                           :   0.0% (0/10)
+Subject Retrieval                   :  16.7% (1/6)
+Advanced Reasoning                  :   0.0% (0/8)
+Hallucination Prevention            :   0.0% (0/7)
+
+============================================================
+FAILED / UNRESOLVED QUESTIONS
+============================================================
+Q003 - Is Dr. Meera Nair exceeding her workload limit?
+  Status   : PARTIAL
+  Category : Missing context
+  Expected : Yes. Actual workload is 15 hours, maximum workload is 12 hours, and excess workload is 3 hours....
+  Actual   : ### Policy Compliance Assessment for Dr. Meera Nair (FAC001)
+- **Designation:** Professor
+- **Actual Teaching Hours:** 1...
+  Issue    : Factual verification failed. Missing entities (1/2 found).
+  Fix      : Provide the required relational context to the response generator.
+--------------------------------------------------
+Q005 - Which faculty member has the highest teaching workload?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : Aditya Bose (FAC009) and Manoj Joseph (FAC018) are tied at 19 hours each....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q007 - How many hours above the limit is Neha Reddy?
+  Status   : PARTIAL
+  Category : Incorrect numerical calculations
+  Expected : 2 hours. Actual workload is 18 hours and effective maximum is 16 hours....
+  Actual   : ### Teaching Workload for Neha Reddy (FAC015)
+**Target Week:** 2026-11-09
+**Total Scheduled Teaching Hours:** **18.0 hou...
+  Issue    : Calculated workload numbers differed from ground truth. Matched 1 of 3 numbers.
+  Fix      : Verify calculation query filters for Active vs Substituted sessions and exclude Cancelled sessions.
+--------------------------------------------------
+Q008 - What is the effective workload limit of a Professor?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : 12 teaching hours per week....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q014 - How many faculty members in Data Science exceed their workload limits?
+  Status   : PARTIAL
+  Category : Missing context
+  Expected : 3....
+  Actual   : ### Department Workload Violations (DEP-DS)
+Total Faculty Exceeding Maximum Limit: **3**
+
+| Faculty ID | Name | Designat...
+  Issue    : Factual verification failed. Missing entities (0/1 found).
+  Fix      : Provide the required relational context to the response generator.
+--------------------------------------------------
+Q015 - Which department has the highest number of workload violations?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : CSE, with 4 violations....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q016 - List all faculty members who violate workload policy across all departments.
+  Status   : ERROR
+  Category : API or execution error
+  Expected : FAC001, FAC002, FAC004, FAC005, FAC007, FAC008, FAC014, FAC015, and FAC018....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q017 - How many faculty members are there in the dataset?
+  Status   : FAIL
+  Category : Incorrect numerical calculations
+  Expected : 18....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Calculated workload numbers differed from ground truth. Matched 0 of 1 numbers.
+  Fix      : Verify calculation query filters for Active vs Substituted sessions and exclude Cancelled sessions.
+--------------------------------------------------
+Q018 - How many departments are present?
+  Status   : FAIL
+  Category : Incorrect numerical calculations
+  Expected : 3 departments: CSE, AIML, and Data Science....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Calculated workload numbers differed from ground truth. Matched 0 of 1 numbers.
+  Fix      : Verify calculation query filters for Active vs Substituted sessions and exclude Cancelled sessions.
+--------------------------------------------------
+Q019 - Does an approved HOD exemption increase the maximum teaching-hour limit?
+  Status   : FAIL
+  Category : Incorrect policy interpretation
+  Expected : No. Approved teaching relief reduces the minimum teaching expectation only. It does not increase the maximum limit....
+  Actual   : ### Department Workload Exemptions (ALL)
+Total Workload Exemptions: **4**
+
+| ID | Faculty ID | Responsibility | Relief H...
+  Issue    : Failed logical negative assertion. The model affirmed a violation or inclusion when policy dictates 'No'.
+  Fix      : Update policy reasoning rule to ensure negative/exclusion criteria are strictly verified.
+--------------------------------------------------
+Q021 - What is Aditya Bose's effective maximum workload?
+  Status   : FAIL
+  Category : Incorrect policy interpretation
+  Expected : 20 hours per week due to approved policy exception PEX001....
+  Actual   : ### Workload Policy for Assistant Professor
+- **Policy ID:** POL-ASST
+- **Standard Maximum Teaching Hours:** **16.0 hrs/...
+  Issue    : Failed policy or exemption verification.
+  Fix      : Ensure policy rules state that exemptions only reduce minimum expectations and do not raise max limits.
+--------------------------------------------------
+Q022 - Is Karthik Bhat's policy exception approved?
+  Status   : PARTIAL
+  Category : Incorrect policy interpretation
+  Expected : No. PEX002 is Pending....
+  Actual   : ### Institutional Policy Exceptions
+Total Exceptions Recorded: **3**
+
+| ID | Faculty ID | Status | Max Hours Cap | Appro...
+  Issue    : Failed policy or exemption verification.
+  Fix      : Ensure policy rules state that exemptions only reduce minimum expectations and do not raise max limits.
+--------------------------------------------------
+Q023 - Should a pending policy exception override the standard workload limit?
+  Status   : PARTIAL
+  Category : Incorrect policy interpretation
+  Expected : No. Only approved and currently valid policy exceptions should override the standard limit....
+  Actual   : ### Institutional Policy Exceptions
+Total Exceptions Recorded: **3**
+
+| ID | Faculty ID | Status | Max Hours Cap | Appro...
+  Issue    : Failed policy or exemption verification.
+  Fix      : Ensure policy rules state that exemptions only reduce minimum expectations and do not raise max limits.
+--------------------------------------------------
+Q024 - What happens when a faculty member exceeds their effective workload limit?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : A workload policy violation must be reported....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q026 - Which faculty member has approved medical leave on 2026-11-12?
+  Status   : PARTIAL
+  Category : Incorrect Excel retrieval
+  Expected : Ishita Kapoor (FAC010)....
+  Actual   : ### Department Leave Records (ALL)
+Total Leave Records: **1**
+
+| Leave ID | Faculty ID | Type | Start Date | End Date | ...
+  Issue    : Missing leave record entity. Expected ['Ishita Kapoor', 'FAC010'].
+  Fix      : Ensure Leave_Records sheet is queried with matching date and faculty_id.
+--------------------------------------------------
+Q028 - Does Karthik Bhat have approved leave on 2026-11-13?
+  Status   : PARTIAL
+  Category : Incorrect Excel retrieval
+  Expected : No. His Official Duty leave is Pending and has not been approved....
+  Actual   : ### Department Leave Records (ALL)
+Total Leave Records: **1**
+
+| Leave ID | Faculty ID | Type | Start Date | End Date | ...
+  Issue    : Missing leave record entity. Expected ['No', 'Pending'].
+  Fix      : Ensure Leave_Records sheet is queried with matching date and faculty_id.
+--------------------------------------------------
+Q029 - Which faculty member has rejected leave in December 2026?
+  Status   : FAIL
+  Category : Incorrect Excel retrieval
+  Expected : Kavya Sharma (FAC003). Her Earned Leave from December 2 to December 4 was Rejected....
+  Actual   : ### Department Leave Records (ALL)
+Total Leave Records: **3**
+
+| Leave ID | Faculty ID | Type | Start Date | End Date | ...
+  Issue    : Missing leave record entity. Expected ['Kavya Sharma', 'FAC003', 'Rejected'].
+  Fix      : Ensure Leave_Records sheet is queried with matching date and faculty_id.
+--------------------------------------------------
+Q031 - Which faculty member has approved leave on November 20?
+  Status   : FAIL
+  Category : Incorrect Excel retrieval
+  Expected : Farah Khan (FAC017). Her replacement is Neha Reddy (FAC015)....
+  Actual   : ### Department Leave Records (ALL)
+Total Leave Records: **3**
+
+| Leave ID | Faculty ID | Type | Start Date | End Date | ...
+  Issue    : Missing leave record entity. Expected ['Farah Khan', 'FAC017', 'Neha Reddy', 'FAC015'].
+  Fix      : Ensure Leave_Records sheet is queried with matching date and faculty_id.
+--------------------------------------------------
+Q033 - What is Dr. Meera Nair's pending assignment?
+  Status   : PARTIAL
+  Category : Missing context
+  Expected : Internal Assessment Evaluation for CS501, due on 2026-11-12....
+  Actual   : ### Academic Assignments for Dr. Meera Nair (FAC001)
+Total Assigned: 1
+Status Breakdown: Pending: 1
+Type Breakdown: Inte...
+  Issue    : Factual verification failed. Missing entities (1/2 found).
+  Fix      : Provide the required relational context to the response generator.
+--------------------------------------------------
+Q034 - What is the status of her Question Paper Preparation assignment?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : In Progress. It is for CS502 and is due on 2026-11-13....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q036 - What is the status of Arjun Menon's Exam Invigilation assignment?
+  Status   : PARTIAL
+  Category : Missing context
+  Expected : Pending. Due date: 2026-11-15....
+  Actual   : ### Academic Assignments for Arjun Menon (FAC002)
+Total Assigned: 3
+Status Breakdown: In Progress: 1, Completed: 1, Pend...
+  Issue    : Factual verification failed. Missing entities (1/2 found).
+  Fix      : Provide the required relational context to the response generator.
+--------------------------------------------------
+Q037 - How many assignments are present in the dataset?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : 54....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q038 - How many assignments does each faculty member have?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : 3 assignments per faculty member....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q039 - How many timetable records are present?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : 281....
+  Actual   : An error occurred while retrieving data: No faculty ID specified or associated with user context....
+  Issue    : Inference engine returned an error: No faculty ID specified or associated with user context.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q040 - How many timetable sessions are Active?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : 277....
+  Actual   : An error occurred while retrieving data: No faculty ID specified or associated with user context....
+  Issue    : Inference engine returned an error: No faculty ID specified or associated with user context.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q041 - Are cancelled sessions included in workload calculations?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : No. Cancelled sessions must be excluded....
+  Actual   : An error occurred while retrieving data: Faculty with ID 'None' not found....
+  Issue    : Inference engine returned an error: Faculty with ID 'None' not found.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q042 - Do laboratory hours count towards teaching workload?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : Yes. Laboratory hours count at actual scheduled duration, with a weight of 1.0....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q043 - Do tutorial hours count towards teaching workload?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : Yes. Tutorial hours count at actual scheduled duration, with a weight of 1.0....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q044 - Does project supervision count as weekly teaching workload?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : No. It is tracked separately as an assignment or responsibility....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q045 - Does exam invigilation count towards weekly teaching hours?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : No. It is tracked separately as examination duty....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q046 - How are substituted sessions counted?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : The workload is credited to the substitute faculty member, not the original faculty member....
+  Actual   : An error occurred while retrieving data: Faculty with ID 'None' not found....
+  Issue    : Inference engine returned an error: Faculty with ID 'None' not found.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q047 - What is the workload calculation period?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : Weekly....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q048 - What is the academic year?
+  Status   : FAIL
+  Category : Missing context
+  Expected : 2026-27....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Factual verification failed. Missing entities (0/1 found).
+  Fix      : Provide the required relational context to the response generator.
+--------------------------------------------------
+Q049 - Which subject has ID CS501?
+  Status   : FAIL
+  Category : Incorrect sheet selection
+  Expected : Operating Systems....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Subject details missing. Expected ['Operating Systems', 'CS501'].
+  Fix      : Query the 'Subjects' table directly using subject_id or subject_name.
+--------------------------------------------------
+Q050 - Which department offers AI501?
+  Status   : FAIL
+  Category : Incorrect sheet selection
+  Expected : Artificial Intelligence and Machine Learning (AIML)....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Subject details missing. Expected ['Artificial Intelligence and Machine Learning', 'AIML'].
+  Fix      : Query the 'Subjects' table directly using subject_id or subject_name.
+--------------------------------------------------
+Q051 - What is the subject name for DS503?
+  Status   : FAIL
+  Category : Incorrect sheet selection
+  Expected : Data Visualization....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Subject details missing. Expected ['Data Visualization', 'DS503'].
+  Fix      : Query the 'Subjects' table directly using subject_id or subject_name.
+--------------------------------------------------
+Q052 - Which subject is associated with AI504?
+  Status   : FAIL
+  Category : Incorrect sheet selection
+  Expected : Computer Vision....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Subject details missing. Expected ['Computer Vision', 'AI504'].
+  Fix      : Query the 'Subjects' table directly using subject_id or subject_name.
+--------------------------------------------------
+Q054 - Which semester is CS503 offered in?
+  Status   : FAIL
+  Category : Incorrect sheet selection
+  Expected : Semester 7....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Subject details missing. Expected ['Semester 7'].
+  Fix      : Query the 'Subjects' table directly using subject_id or subject_name.
+--------------------------------------------------
+Q055 - If a faculty member teaches 18 hours and has a maximum limit of 16 hours, how much excess workload do they have?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : 2 hours....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q056 - If a faculty member has 19 hours and an approved maximum override of 20 hours, is there a violation?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : No. The faculty member is within the approved limit....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q057 - If a policy exception is Pending, should it be considered when calculating the effective maximum?
+  Status   : PARTIAL
+  Category : LLM reasoning failure
+  Expected : No. Pending exceptions must not override the standard policy....
+  Actual   : ### Institutional Policy Exceptions
+Total Exceptions Recorded: **3**
+
+| ID | Faculty ID | Status | Max Hours Cap | Appro...
+  Issue    : Logical reasoning did not match policy rules.
+  Fix      : Ensure prompt or deterministic rule applies effective limit = standard limit + approved exceptions.
+--------------------------------------------------
+Q058 - Does a faculty member with 12 teaching hours violate the Professor workload policy?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : No. The Professor maximum is 12 hours. The faculty member is exactly at the maximum....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q059 - If a one-hour lecture is cancelled, should it count towards workload?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : No....
+  Actual   : An error occurred while retrieving data: Faculty with ID 'None' not found....
+  Issue    : Inference engine returned an error: Faculty with ID 'None' not found.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q060 - If a faculty member conducts a two-hour laboratory, how many teaching hours should be counted?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : 2 hours....
+  Actual   : An error occurred while retrieving data: No faculty ID provided or authenticated....
+  Issue    : Inference engine returned an error: No faculty ID provided or authenticated.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q061 - If a substitute conducts a one-hour class, who receives the workload credit?
+  Status   : ERROR
+  Category : API or execution error
+  Expected : The substitute faculty member receives one teaching hour. The original faculty member does not receive the credit....
+  Actual   : An error occurred while retrieving data: Faculty with ID 'None' not found....
+  Issue    : Inference engine returned an error: Faculty with ID 'None' not found.
+  Fix      : Inspect service logs and ensure database/LLM connectivity.
+--------------------------------------------------
+Q062 - Can an HOD's administrative relief be added to the maximum workload limit?
+  Status   : PARTIAL
+  Category : LLM reasoning failure
+  Expected : No. Approved administrative relief reduces the minimum teaching expectation only....
+  Actual   : I could not find sufficient information in the available institutional dataset to answer this question accurately. (No p...
+  Issue    : Logical reasoning did not match policy rules.
+  Fix      : Ensure prompt or deterministic rule applies effective limit = standard limit + approved exceptions.
+--------------------------------------------------
+Q063 - What is the salary of Dr. Meera Nair?
+  Status   : HALLUCINATION
+  Category : Hallucination
+  Expected : Salary information is not available in the dataset. The LLM must not invent a salary....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Model fabricated nonexistent information for missing dataset attribute: Invented a numerical salary figure.
+  Fix      : Add strict guardrails instructing model to state that the dataset does not contain this attribute.
+--------------------------------------------------
+Q064 - What is the home address of FAC001?
+  Status   : FAIL
+  Category : Missing context
+  Expected : Home address information is not available in the dataset....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Did not state that information is unavailable in the dataset.
+  Fix      : Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.
+--------------------------------------------------
+Q065 - What is the age of Arjun Menon?
+  Status   : FAIL
+  Category : Missing context
+  Expected : Age information is not available in the dataset....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Did not state that information is unavailable in the dataset.
+  Fix      : Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.
+--------------------------------------------------
+Q066 - What is the attendance percentage of FAC005?
+  Status   : FAIL
+  Category : Missing context
+  Expected : Attendance percentage is not available in the dataset....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Did not state that information is unavailable in the dataset.
+  Fix      : Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.
+--------------------------------------------------
+Q067 - What was the workload of FAC001 in November 2025?
+  Status   : FAIL
+  Category : Missing context
+  Expected : The dataset does not contain November-specific records for 2025. It contains historical academic-year and term-level agg...
+  Actual   : ### Teaching Workload for Dr. Meera Nair (FAC001)
+**Target Week:** 2026-11-09
+**Total Scheduled Teaching Hours:** **15.0...
+  Issue    : Did not state that information is unavailable in the dataset.
+  Fix      : Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.
+--------------------------------------------------
+Q068 - What is the GPA of FAC007?
+  Status   : FAIL
+  Category : Missing context
+  Expected : GPA information is not available in the dataset....
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Did not state that information is unavailable in the dataset.
+  Fix      : Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.
+--------------------------------------------------
+Q069 - Who is the Dean of the university?
+  Status   : FAIL
+  Category : Missing context
+  Expected : The Dean's identity is not established by the available dataset. DEAN001 appears as an approver identifier, but no corre...
+  Actual   : I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about dai...
+  Issue    : Did not state that information is unavailable in the dataset.
+  Fix      : Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.
+--------------------------------------------------
+
+============================================================
+AUDIT COMPLETED
+============================================================

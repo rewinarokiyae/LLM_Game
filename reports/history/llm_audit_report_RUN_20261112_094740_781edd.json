@@ -1,0 +1,147 @@
+{
+  "run_id": "RUN_20261112_094740_781edd",
+  "timestamp": "2026-11-12T09:47:41.038333",
+  "llm_provider": "Deterministic Offline Mode (LLM Not Connected)",
+  "evaluated_user": "admin",
+  "total_questions": 6,
+  "passed": 2,
+  "partially_correct": 2,
+  "failed": 2,
+  "hallucinations": 0,
+  "execution_errors": 0,
+  "accuracy_percent": 33.33,
+  "strict_accuracy_percent": 33.33,
+  "total_execution_time_seconds": 0.053,
+  "average_response_time_seconds": 0.009,
+  "weakest_category": "Leave Management",
+  "category_performance": {
+    "Leave Management": {
+      "total": 6,
+      "passed": 2,
+      "partial": 2,
+      "failed": 2,
+      "hallucinations": 0,
+      "errors": 0,
+      "accuracy_percent": 33.33
+    }
+  },
+  "failure_diagnostics": {
+    "Incorrect Excel retrieval": 4
+  },
+  "results": [
+    {
+      "test_id": "Q026",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Which faculty member has approved medical leave on 2026-11-12?",
+      "expected_answer": "Ishita Kapoor (FAC010).",
+      "actual_answer": "### Department Leave Records (ALL)\nTotal Leave Records: **1**\n\n| Leave ID | Faculty ID | Type | Start Date | End Date | Status |\n|---|---|---|---|---|---|\n| LV002 | FAC010 | Medical Leave | 2026-11-12 | 2026-11-12 | Approved |\n\n[Data Source: Worksheet 'Leave_Records' (Record: leave_id=LEV-ALL)]",
+      "status": "PARTIAL",
+      "score": 50,
+      "reason": "Response is partially correct. Matched 0/0 numbers and 1/2 key entities.",
+      "what_went_wrong": "Missing leave record entity. Expected ['Ishita Kapoor', 'FAC010'].",
+      "failure_category": "Incorrect Excel retrieval",
+      "suggested_correction": "Ensure Leave_Records sheet is queried with matching date and faculty_id.",
+      "execution_time": 0.008,
+      "metadata": {
+        "intent": "leave_lookup",
+        "tool": "get_department_leave"
+      }
+    },
+    {
+      "test_id": "Q027",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Who replaces Ishita Kapoor during her medical leave?",
+      "expected_answer": "Rohan Shetty (FAC011).",
+      "actual_answer": "### Substitution Details for FAC010\n- **Cancelled Class:** TT0150 (AI502, Section AIML-S7-A) on Thursday 10:00-11:00\n  - Cancellation Reason: Approved leave; session cancelled\n  - **Substitute Faculty:** **Rohan Shetty (FAC011)** [Timetable ID: TT0281]\n\n[Data Source: Worksheet 'Timetable' (Record: faculty_id=FAC010)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.012,
+      "metadata": {
+        "intent": "substitute_lookup",
+        "tool": "get_substitute_allocations"
+      }
+    },
+    {
+      "test_id": "Q028",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Does Karthik Bhat have approved leave on 2026-11-13?",
+      "expected_answer": "No. His Official Duty leave is Pending and has not been approved.",
+      "actual_answer": "### Department Leave Records (ALL)\nTotal Leave Records: **1**\n\n| Leave ID | Faculty ID | Type | Start Date | End Date | Status |\n|---|---|---|---|---|---|\n| LV003 | FAC016 | Official Duty | 2026-11-13 | 2026-11-13 | Pending |\n\n[Data Source: Worksheet 'Leave_Records' (Record: leave_id=LEV-ALL)]",
+      "status": "PARTIAL",
+      "score": 75,
+      "reason": "Response is partially correct. Matched 0/0 numbers and 1/2 key entities.",
+      "what_went_wrong": "Missing leave record entity. Expected ['No', 'Pending'].",
+      "failure_category": "Incorrect Excel retrieval",
+      "suggested_correction": "Ensure Leave_Records sheet is queried with matching date and faculty_id.",
+      "execution_time": 0.008,
+      "metadata": {
+        "intent": "leave_lookup",
+        "tool": "get_department_leave"
+      }
+    },
+    {
+      "test_id": "Q029",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Which faculty member has rejected leave in December 2026?",
+      "expected_answer": "Kavya Sharma (FAC003). Her Earned Leave from December 2 to December 4 was Rejected.",
+      "actual_answer": "### Department Leave Records (ALL)\nTotal Leave Records: **3**\n\n| Leave ID | Faculty ID | Type | Start Date | End Date | Status |\n|---|---|---|---|---|---|\n| LV001 | FAC004 | Casual Leave | 2026-11-11 | 2026-11-11 | Approved |\n| LV002 | FAC010 | Medical Leave | 2026-11-12 | 2026-11-12 | Approved |\n| LV003 | FAC016 | Official Duty | 2026-11-13 | 2026-11-13 | Pending |\n\n[Data Source: Worksheet 'Leave_Records' (Record: leave_id=LEV-ALL)]",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Missing leave record entity. Expected ['Kavya Sharma', 'FAC003', 'Rejected'].",
+      "failure_category": "Incorrect Excel retrieval",
+      "suggested_correction": "Ensure Leave_Records sheet is queried with matching date and faculty_id.",
+      "execution_time": 0.008,
+      "metadata": {
+        "intent": "leave_lookup",
+        "tool": "get_department_leave"
+      }
+    },
+    {
+      "test_id": "Q030",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Who is replacing Rahul Das during his approved leave on November 11?",
+      "expected_answer": "Sneha Thomas (FAC005).",
+      "actual_answer": "### Substitution Details for FAC004\n- **Cancelled Class:** TT0053 (CS501, Section CSE-S5-B) on Wednesday 11:15-12:15\n  - Cancellation Reason: Approved leave; session cancelled\n  - **Substitute Faculty:** **Sneha Thomas (FAC005)** [Timetable ID: TT0280]\n\n[Data Source: Worksheet 'Timetable' (Record: faculty_id=FAC004)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.007,
+      "metadata": {
+        "intent": "substitute_lookup",
+        "tool": "get_substitute_allocations"
+      }
+    },
+    {
+      "test_id": "Q031",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Which faculty member has approved leave on November 20?",
+      "expected_answer": "Farah Khan (FAC017). Her replacement is Neha Reddy (FAC015).",
+      "actual_answer": "### Department Leave Records (ALL)\nTotal Leave Records: **3**\n\n| Leave ID | Faculty ID | Type | Start Date | End Date | Status |\n|---|---|---|---|---|---|\n| LV001 | FAC004 | Casual Leave | 2026-11-11 | 2026-11-11 | Approved |\n| LV002 | FAC010 | Medical Leave | 2026-11-12 | 2026-11-12 | Approved |\n| LV003 | FAC016 | Official Duty | 2026-11-13 | 2026-11-13 | Pending |\n\n[Data Source: Worksheet 'Leave_Records' (Record: leave_id=LEV-ALL)]",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Missing leave record entity. Expected ['Farah Khan', 'FAC017', 'Neha Reddy', 'FAC015'].",
+      "failure_category": "Incorrect Excel retrieval",
+      "suggested_correction": "Ensure Leave_Records sheet is queried with matching date and faculty_id.",
+      "execution_time": 0.009,
+      "metadata": {
+        "intent": "leave_lookup",
+        "tool": "get_department_leave"
+      }
+    }
+  ]
+}

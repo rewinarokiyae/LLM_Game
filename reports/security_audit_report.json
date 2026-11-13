@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-11-12T09:48:02.432332",
+  "total_security_scenarios": 7,
+  "passed": 7,
+  "failed": 0,
+  "pass_rate_percent": 100.0,
+  "execution_time_seconds": 0.1,
+  "scenarios": [
+    {
+      "scenario_id": "SEC-01",
+      "title": "Faculty Own Record Access",
+      "description": "Faculty users can access their own records only.",
+      "passed": true,
+      "status": "PASS",
+      "details": "Faculty user successfully accessed their own teaching workload records."
+    },
+    {
+      "scenario_id": "SEC-02",
+      "title": "Faculty Cross-Record Access Denial",
+      "description": "Faculty users cannot access another faculty member's private records.",
+      "passed": true,
+      "status": "PASS",
+      "details": "Access correctly denied when faculty attempted to access another faculty member's records."
+    },
+    {
+      "scenario_id": "SEC-03",
+      "title": "HOD Own Department Access",
+      "description": "HOD users can access records within their own department.",
+      "passed": true,
+      "status": "PASS",
+      "details": "HOD successfully accessed department-level analytics for their own department."
+    },
+    {
+      "scenario_id": "SEC-04",
+      "title": "HOD Cross-Department Access Denial",
+      "description": "HOD users cannot access another department's restricted records.",
+      "passed": true,
+      "status": "PASS",
+      "details": "Access correctly denied when HOD attempted to view another department's records."
+    },
+    {
+      "scenario_id": "SEC-05",
+      "title": "Admin University-Wide Access",
+      "description": "Admin users can access university-wide records.",
+      "passed": true,
+      "status": "PASS",
+      "details": "Admin user successfully accessed university-wide institutional workload comparison."
+    },
+    {
+      "scenario_id": "SEC-06",
+      "title": "Leave Approval Integrity",
+      "description": "Pending and rejected leave records are not treated as approved leave.",
+      "passed": true,
+      "status": "PASS",
+      "details": "Verified: All 1 filtered records strictly have approval_status='Approved'. Pending/Rejected leaves excluded."
+    },
+    {
+      "scenario_id": "SEC-07",
+      "title": "Policy Exception Override Integrity",
+      "description": "Pending and rejected policy exceptions do not override workload limits.",
+      "passed": true,
+      "status": "PASS",
+      "details": "Verified: Pending policy exception PEX002 (19.0 hrs) for FAC016 was ignored. Effective limit remains 16.0 hrs."
+    }
+  ]
+}

@@ -1,0 +1,1423 @@
+{
+  "run_id": "RUN_20261112_094528_58c06c",
+  "timestamp": "2026-11-12T09:45:30.006428",
+  "llm_provider": "Deterministic Offline Mode (LLM Not Connected)",
+  "evaluated_user": "admin",
+  "total_questions": 69,
+  "passed": 16,
+  "partially_correct": 11,
+  "failed": 18,
+  "hallucinations": 1,
+  "execution_errors": 23,
+  "accuracy_percent": 23.19,
+  "strict_accuracy_percent": 23.19,
+  "total_execution_time_seconds": 1.415,
+  "average_response_time_seconds": 0.021,
+  "weakest_category": "Timetable",
+  "category_performance": {
+    "Faculty Workload": {
+      "total": 10,
+      "passed": 6,
+      "partial": 2,
+      "failed": 0,
+      "hallucinations": 0,
+      "errors": 2,
+      "accuracy_percent": 60.0
+    },
+    "Department Workload": {
+      "total": 8,
+      "passed": 3,
+      "partial": 1,
+      "failed": 2,
+      "hallucinations": 0,
+      "errors": 2,
+      "accuracy_percent": 37.5
+    },
+    "Workload Policies": {
+      "total": 7,
+      "passed": 2,
+      "partial": 2,
+      "failed": 2,
+      "hallucinations": 0,
+      "errors": 1,
+      "accuracy_percent": 28.57
+    },
+    "Leave Management": {
+      "total": 6,
+      "passed": 2,
+      "partial": 2,
+      "failed": 2,
+      "hallucinations": 0,
+      "errors": 0,
+      "accuracy_percent": 33.33
+    },
+    "Assignment Management": {
+      "total": 7,
+      "passed": 2,
+      "partial": 2,
+      "failed": 0,
+      "hallucinations": 0,
+      "errors": 3,
+      "accuracy_percent": 28.57
+    },
+    "Timetable": {
+      "total": 10,
+      "passed": 0,
+      "partial": 0,
+      "failed": 1,
+      "hallucinations": 0,
+      "errors": 9,
+      "accuracy_percent": 0.0
+    },
+    "Subject Retrieval": {
+      "total": 6,
+      "passed": 1,
+      "partial": 0,
+      "failed": 5,
+      "hallucinations": 0,
+      "errors": 0,
+      "accuracy_percent": 16.67
+    },
+    "Advanced Reasoning": {
+      "total": 8,
+      "passed": 0,
+      "partial": 2,
+      "failed": 0,
+      "hallucinations": 0,
+      "errors": 6,
+      "accuracy_percent": 0.0
+    },
+    "Hallucination Prevention": {
+      "total": 7,
+      "passed": 0,
+      "partial": 0,
+      "failed": 6,
+      "hallucinations": 1,
+      "errors": 0,
+      "accuracy_percent": 0.0
+    }
+  },
+  "failure_diagnostics": {
+    "Missing context": 11,
+    "API or execution error": 23,
+    "Incorrect numerical calculations": 3,
+    "Incorrect policy interpretation": 4,
+    "Incorrect Excel retrieval": 4,
+    "Incorrect sheet selection": 5,
+    "LLM reasoning failure": 2,
+    "Hallucination": 1
+  },
+  "results": [
+    {
+      "test_id": "Q001",
+      "category_code": "A",
+      "category_name": "Faculty Workload",
+      "question": "How many teaching hours does FAC001 have for the week starting 2026-11-09?",
+      "expected_answer": "15 hours.",
+      "actual_answer": "### Teaching Workload for Dr. Meera Nair (FAC001)\n**Target Week:** 2026-11-09\n**Total Scheduled Teaching Hours:** **15.0 hours**\n\n**Calculation Basis (from Timetable):**\n- Lectures: 10.0 hrs\n- Tutorials: 2.0 hrs\n- Laboratories: 3.0 hrs\n\n*Note: Cancelled sessions are excluded. Academic responsibilities (projects, exams) are tracked separately as assignments.*\n[Data Source: Worksheet 'Timetable' (Record: faculty_id=FAC001)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.078,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "get_teaching_hours"
+      }
+    },
+    {
+      "test_id": "Q002",
+      "category_code": "A",
+      "category_name": "Faculty Workload",
+      "question": "What is the weekly teaching workload of Arjun Menon?",
+      "expected_answer": "17 hours.",
+      "actual_answer": "### Teaching Workload for Arjun Menon (FAC002)\n**Target Week:** 2026-11-09\n**Total Scheduled Teaching Hours:** **17.0 hours**\n\n**Calculation Basis (from Timetable):**\n- Lectures: 11.0 hrs\n- Tutorials: 3.0 hrs\n- Laboratories: 3.0 hrs\n\n*Note: Cancelled sessions are excluded. Academic responsibilities (projects, exams) are tracked separately as assignments.*\n[Data Source: Worksheet 'Timetable' (Record: faculty_id=FAC002)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.033,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "get_teaching_hours"
+      }
+    },
+    {
+      "test_id": "Q003",
+      "category_code": "A",
+      "category_name": "Faculty Workload",
+      "question": "Is Dr. Meera Nair exceeding her workload limit?",
+      "expected_answer": "Yes. Actual workload is 15 hours, maximum workload is 12 hours, and excess workload is 3 hours.",
+      "actual_answer": "### Policy Compliance Assessment for Dr. Meera Nair (FAC001)\n- **Designation:** Professor\n- **Actual Teaching Hours:** 15.0 hrs\n- **Standard Policy Max Limit:** 12.0 hrs\n- **Approved Policy Exceptions:** None found. No approved exception exists to raise the maximum policy limit.\n- **Approved Exemption (EX001):** Provides 4.0 hrs relief on *minimum* expected hours for HOD duties. (Does not raise maximum cap).\n- **Effective Maximum Limit:** **12.0 hrs**\n- **Excess Hours:** **3.0 hrs**\n\n**Contributing Timetable Sessions:**\n- Lectures: 10.0 hrs\n- Tutorials: 2.0 hrs\n- Laboratories: 3.0 hrs\n\n\ud83d\udea8 **RESULT: POLICY VIOLATION DETECTED.** Your scheduled teaching workload is **15.0 hours**, which exceeds the policy limit of **12.0 hours** for an **Professor** by **3.0 hours**.\n\n[Policy Source: Approved institutional workload policy - synthetic demo, v1.0 | Policy ID: POL-PROF | Page 12]",
+      "status": "PARTIAL",
+      "score": 75,
+      "reason": "Response is partially correct. Matched 3/3 numbers and 1/2 key entities.",
+      "what_went_wrong": "Factual verification failed. Missing entities (1/2 found).",
+      "failure_category": "Missing context",
+      "suggested_correction": "Provide the required relational context to the response generator.",
+      "execution_time": 0.022,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "get_workload_status"
+      }
+    },
+    {
+      "test_id": "Q004",
+      "category_code": "A",
+      "category_name": "Faculty Workload",
+      "question": "What is the workload of Aditya Bose?",
+      "expected_answer": "19 hours.",
+      "actual_answer": "### Teaching Workload for Aditya Bose (FAC009)\n**Target Week:** 2026-11-09\n**Total Scheduled Teaching Hours:** **19.0 hours**\n\n**Calculation Basis (from Timetable):**\n- Lectures: 13.0 hrs\n- Tutorials: 3.0 hrs\n- Laboratories: 3.0 hrs\n\n*Note: Cancelled sessions are excluded. Academic responsibilities (projects, exams) are tracked separately as assignments.*\n[Data Source: Worksheet 'Timetable' (Record: faculty_id=FAC009)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.026,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "get_teaching_hours"
+      }
+    },
+    {
+      "test_id": "Q005",
+      "category_code": "A",
+      "category_name": "Faculty Workload",
+      "question": "Which faculty member has the highest teaching workload?",
+      "expected_answer": "Aditya Bose (FAC009) and Manoj Joseph (FAC018) are tied at 19 hours each.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.021,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q006",
+      "category_code": "A",
+      "category_name": "Faculty Workload",
+      "question": "Is Kavya Sharma violating the workload policy?",
+      "expected_answer": "No. Actual workload is 13 hours and maximum workload is 16 hours.",
+      "actual_answer": "### Policy Compliance Assessment for Kavya Sharma (FAC003)\n- **Designation:** Assistant Professor\n- **Actual Teaching Hours:** 13.0 hrs\n- **Standard Policy Max Limit:** 16.0 hrs\n- **Approved Policy Exceptions:** None found. No approved exception exists to raise the maximum policy limit.\n- **Effective Maximum Limit:** **16.0 hrs**\n- **Excess Hours:** **0.0 hrs**\n\n**Contributing Timetable Sessions:**\n- Lectures: 9.0 hrs\n- Tutorials: 2.0 hrs\n- Laboratories: 2.0 hrs\n\n\u2705 **RESULT: COMPLIANT WITH POLICY.** Actual teaching hours (13.0 hrs) do not exceed the effective limit (16.0 hrs).\n\n[Policy Source: Approved institutional workload policy - synthetic demo, v1.0 | Policy ID: POL-ASST | Page 12]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.027,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "get_workload_status"
+      }
+    },
+    {
+      "test_id": "Q007",
+      "category_code": "A",
+      "category_name": "Faculty Workload",
+      "question": "How many hours above the limit is Neha Reddy?",
+      "expected_answer": "2 hours. Actual workload is 18 hours and effective maximum is 16 hours.",
+      "actual_answer": "### Teaching Workload for Neha Reddy (FAC015)\n**Target Week:** 2026-11-09\n**Total Scheduled Teaching Hours:** **18.0 hours**\n\n**Calculation Basis (from Timetable):**\n- Lectures: 12.0 hrs\n- Tutorials: 3.0 hrs\n- Laboratories: 3.0 hrs\n\n*Note: Cancelled sessions are excluded. Academic responsibilities (projects, exams) are tracked separately as assignments.*\n[Data Source: Worksheet 'Timetable' (Record: faculty_id=FAC015)]",
+      "status": "PARTIAL",
+      "score": 75,
+      "reason": "Response is partially correct. Matched 1/3 numbers and 2/2 key entities.",
+      "what_went_wrong": "Calculated workload numbers differed from ground truth. Matched 1 of 3 numbers.",
+      "failure_category": "Incorrect numerical calculations",
+      "suggested_correction": "Verify calculation query filters for Active vs Substituted sessions and exclude Cancelled sessions.",
+      "execution_time": 0.023,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "get_teaching_hours"
+      }
+    },
+    {
+      "test_id": "Q008",
+      "category_code": "A",
+      "category_name": "Faculty Workload",
+      "question": "What is the effective workload limit of a Professor?",
+      "expected_answer": "12 teaching hours per week.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.014,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q009",
+      "category_code": "A",
+      "category_name": "Faculty Workload",
+      "question": "What is the maximum workload for an Associate Professor?",
+      "expected_answer": "14 teaching hours per week.",
+      "actual_answer": "### Workload Policy for Associate Professor\n- **Policy ID:** POL-ASSOC\n- **Standard Maximum Teaching Hours:** **14.0 hrs/week**\n- **Minimum Expected Teaching Hours:** **8.0 hrs/week**\n- **Calculation Rule:** Teaching hours are counted by actual scheduled duration. Approved teaching relief may reduce minimum expectation only.\n- **Validity Period:** 2026-07-01 to 2027-06-30\n- **Source Document:** Approved institutional workload policy - synthetic demo, v1.0 (Page 12)\n\n[Policy Source: Approved institutional workload policy - synthetic demo, v1.0 | Policy ID: POL-ASSOC | Page 12]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.016,
+      "metadata": {
+        "intent": "policy_lookup",
+        "tool": "get_policy"
+      }
+    },
+    {
+      "test_id": "Q010",
+      "category_code": "A",
+      "category_name": "Faculty Workload",
+      "question": "What is the maximum workload for a Lecturer?",
+      "expected_answer": "18 teaching hours per week.",
+      "actual_answer": "### Workload Policy for Lecturer\n- **Policy ID:** POL-LECT\n- **Standard Maximum Teaching Hours:** **18.0 hrs/week**\n- **Minimum Expected Teaching Hours:** **12.0 hrs/week**\n- **Calculation Rule:** Teaching hours are counted by actual scheduled duration. Approved teaching relief may reduce minimum expectation only.\n- **Validity Period:** 2026-07-01 to 2027-06-30\n- **Source Document:** Approved institutional workload policy - synthetic demo, v1.0 (Page 12)\n\n[Policy Source: Approved institutional workload policy - synthetic demo, v1.0 | Policy ID: POL-LECT | Page 12]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.014,
+      "metadata": {
+        "intent": "policy_lookup",
+        "tool": "get_policy"
+      }
+    },
+    {
+      "test_id": "Q011",
+      "category_code": "B",
+      "category_name": "Department Workload",
+      "question": "Which faculty members in DEP-CSE exceed their policy limits?",
+      "expected_answer": "Dr. Meera Nair (FAC001), Arjun Menon (FAC002), Rahul Das (FAC004), and Sneha Thomas (FAC005).",
+      "actual_answer": "### Department Workload Violations (DEP-CSE)\nTotal Faculty Exceeding Maximum Limit: **4**\n\n| Faculty ID | Name | Designation | Actual Hours | Effective Limit | Excess Hours |\n|---|---|---|---|---|---|\n| FAC001 | Dr. Meera Nair | Professor | 15.0 hrs | 12.0 hrs | **+3.0 hrs** |\n| FAC002 | Arjun Menon | Associate Professor | 17.0 hrs | 14.0 hrs | **+3.0 hrs** |\n| FAC004 | Rahul Das | Assistant Professor | 17.0 hrs | 16.0 hrs | **+1.0 hrs** |\n| FAC005 | Sneha Thomas | Assistant Professor | 17.0 hrs | 16.0 hrs | **+1.0 hrs** |",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.147,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "get_policy_violations"
+      }
+    },
+    {
+      "test_id": "Q012",
+      "category_code": "B",
+      "category_name": "Department Workload",
+      "question": "How many faculty members in CSE violate workload policy?",
+      "expected_answer": "4.",
+      "actual_answer": "### Department Workload Violations (DEP-CSE)\nTotal Faculty Exceeding Maximum Limit: **4**\n\n| Faculty ID | Name | Designation | Actual Hours | Effective Limit | Excess Hours |\n|---|---|---|---|---|---|\n| FAC001 | Dr. Meera Nair | Professor | 15.0 hrs | 12.0 hrs | **+3.0 hrs** |\n| FAC002 | Arjun Menon | Associate Professor | 17.0 hrs | 14.0 hrs | **+3.0 hrs** |\n| FAC004 | Rahul Das | Assistant Professor | 17.0 hrs | 16.0 hrs | **+1.0 hrs** |\n| FAC005 | Sneha Thomas | Assistant Professor | 17.0 hrs | 16.0 hrs | **+1.0 hrs** |",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.09,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "get_policy_violations"
+      }
+    },
+    {
+      "test_id": "Q013",
+      "category_code": "B",
+      "category_name": "Department Workload",
+      "question": "Which faculty members in AIML exceed their workload limits?",
+      "expected_answer": "Dr. Vikram Rao (FAC007) and Priya Krishnan (FAC008).",
+      "actual_answer": "### Department Workload Violations (DEP-AIML)\nTotal Faculty Exceeding Maximum Limit: **2**\n\n| Faculty ID | Name | Designation | Actual Hours | Effective Limit | Excess Hours |\n|---|---|---|---|---|---|\n| FAC007 | Dr. Vikram Rao | Professor | 14.0 hrs | 12.0 hrs | **+2.0 hrs** |\n| FAC008 | Priya Krishnan | Associate Professor | 15.0 hrs | 14.0 hrs | **+1.0 hrs** |",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.08,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "get_policy_violations"
+      }
+    },
+    {
+      "test_id": "Q014",
+      "category_code": "B",
+      "category_name": "Department Workload",
+      "question": "How many faculty members in Data Science exceed their workload limits?",
+      "expected_answer": "3.",
+      "actual_answer": "### Department Workload Violations (DEP-DS)\nTotal Faculty Exceeding Maximum Limit: **3**\n\n| Faculty ID | Name | Designation | Actual Hours | Effective Limit | Excess Hours |\n|---|---|---|---|---|---|\n| FAC014 | Sanjay Kulkarni | Associate Professor | 15.0 hrs | 14.0 hrs | **+1.0 hrs** |\n| FAC015 | Neha Reddy | Assistant Professor | 18.0 hrs | 16.0 hrs | **+2.0 hrs** |\n| FAC018 | Manoj Joseph | Lecturer | 19.0 hrs | 18.0 hrs | **+1.0 hrs** |",
+      "status": "PARTIAL",
+      "score": 50,
+      "reason": "Response is partially correct. Matched 1/1 numbers and 0/1 key entities.",
+      "what_went_wrong": "Factual verification failed. Missing entities (0/1 found).",
+      "failure_category": "Missing context",
+      "suggested_correction": "Provide the required relational context to the response generator.",
+      "execution_time": 0.063,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "get_policy_violations"
+      }
+    },
+    {
+      "test_id": "Q015",
+      "category_code": "B",
+      "category_name": "Department Workload",
+      "question": "Which department has the highest number of workload violations?",
+      "expected_answer": "CSE, with 4 violations.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.014,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q016",
+      "category_code": "B",
+      "category_name": "Department Workload",
+      "question": "List all faculty members who violate workload policy across all departments.",
+      "expected_answer": "FAC001, FAC002, FAC004, FAC005, FAC007, FAC008, FAC014, FAC015, and FAC018.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.014,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q017",
+      "category_code": "B",
+      "category_name": "Department Workload",
+      "question": "How many faculty members are there in the dataset?",
+      "expected_answer": "18.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Calculated workload numbers differed from ground truth. Matched 0 of 1 numbers.",
+      "failure_category": "Incorrect numerical calculations",
+      "suggested_correction": "Verify calculation query filters for Active vs Substituted sessions and exclude Cancelled sessions.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q018",
+      "category_code": "B",
+      "category_name": "Department Workload",
+      "question": "How many departments are present?",
+      "expected_answer": "3 departments: CSE, AIML, and Data Science.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Calculated workload numbers differed from ground truth. Matched 0 of 1 numbers.",
+      "failure_category": "Incorrect numerical calculations",
+      "suggested_correction": "Verify calculation query filters for Active vs Substituted sessions and exclude Cancelled sessions.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q019",
+      "category_code": "C",
+      "category_name": "Workload Policies",
+      "question": "Does an approved HOD exemption increase the maximum teaching-hour limit?",
+      "expected_answer": "No. Approved teaching relief reduces the minimum teaching expectation only. It does not increase the maximum limit.",
+      "actual_answer": "### Department Workload Exemptions (ALL)\nTotal Workload Exemptions: **4**\n\n| ID | Faculty ID | Responsibility | Relief Hours/Week | Approved By | Valid Until |\n|---|---|---|---|---|---|\n| EX001 | FAC001 | HOD | 4.0 hrs | Dr. Meera Nair | 2027-06-30 |\n| EX002 | FAC007 | HOD | 4.0 hrs | Registrar | 2027-06-30 |\n| EX003 | FAC013 | HOD | 4.0 hrs | Registrar | 2027-06-30 |\n| EX004 | FAC008 | Research Coordinator | 2.0 hrs | HOD-FAC007 | 2027-03-31 |\n\n[Data Source: Worksheet 'Workload_Exemptions' (Record: exemption_id=EXM-ALL)]",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Failed logical negative assertion. The model affirmed a violation or inclusion when policy dictates 'No'.",
+      "failure_category": "Incorrect policy interpretation",
+      "suggested_correction": "Update policy reasoning rule to ensure negative/exclusion criteria are strictly verified.",
+      "execution_time": 0.016,
+      "metadata": {
+        "intent": "exemption_lookup",
+        "tool": "get_workload_exemptions"
+      }
+    },
+    {
+      "test_id": "Q020",
+      "category_code": "C",
+      "category_name": "Workload Policies",
+      "question": "What is Dr. Meera Nair's approved weekly workload relief?",
+      "expected_answer": "4 hours per week for HOD responsibilities.",
+      "actual_answer": "### Workload Exemptions for Faculty FAC001\nTotal Workload Exemptions: **1**\n\n| ID | Faculty ID | Responsibility | Relief Hours/Week | Approved By | Valid Until |\n|---|---|---|---|---|---|\n| EX001 | None | HOD | 4.0 hrs | Dr. Meera Nair | 2027-06-30 |\n\n[Data Source: Worksheet 'Workload_Exemptions' (Record: exemption_id=EXM-ALL)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.016,
+      "metadata": {
+        "intent": "exemption_lookup",
+        "tool": "get_workload_exemptions"
+      }
+    },
+    {
+      "test_id": "Q021",
+      "category_code": "C",
+      "category_name": "Workload Policies",
+      "question": "What is Aditya Bose's effective maximum workload?",
+      "expected_answer": "20 hours per week due to approved policy exception PEX001.",
+      "actual_answer": "### Workload Policy for Assistant Professor\n- **Policy ID:** POL-ASST\n- **Standard Maximum Teaching Hours:** **16.0 hrs/week**\n- **Minimum Expected Teaching Hours:** **10.0 hrs/week**\n- **Calculation Rule:** Teaching hours are counted by actual scheduled duration. Approved teaching relief may reduce minimum expectation only.\n- **Validity Period:** 2026-07-01 to 2027-06-30\n- **Source Document:** Approved institutional workload policy - synthetic demo, v1.0 (Page 12)\n\n[Policy Source: Approved institutional workload policy - synthetic demo, v1.0 | Policy ID: POL-ASST | Page 12]",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Failed policy or exemption verification.",
+      "failure_category": "Incorrect policy interpretation",
+      "suggested_correction": "Ensure policy rules state that exemptions only reduce minimum expectations and do not raise max limits.",
+      "execution_time": 0.039,
+      "metadata": {
+        "intent": "policy_lookup",
+        "tool": "get_policy"
+      }
+    },
+    {
+      "test_id": "Q022",
+      "category_code": "C",
+      "category_name": "Workload Policies",
+      "question": "Is Karthik Bhat's policy exception approved?",
+      "expected_answer": "No. PEX002 is Pending.",
+      "actual_answer": "### Institutional Policy Exceptions\nTotal Exceptions Recorded: **3**\n\n| ID | Faculty ID | Status | Max Hours Cap | Approved By | Valid Until | Reason |\n|---|---|---|---|---|---|---|\n| PEX001 | FAC009 | \u2705 Approved | 20.0 hrs | DEAN001 | 2026-11-30 | Temporary additional lab allocation approved by Dean |\n| PEX002 | FAC016 | \u23f3 Pending | 19.0 hrs | DEAN001 | 2026-11-30 | Temporary project delivery requirement |\n| PEX003 | FAC012 | \u274c Rejected | 19.0 hrs | DEAN001 | 2026-11-30 | Additional tutorial allocation |\n\n[Data Source: Worksheet 'Policy_Exceptions' (Record: exception_id=EXC-ALL)]",
+      "status": "PARTIAL",
+      "score": 75,
+      "reason": "Response is partially correct. Matched 0/0 numbers and 2/3 key entities.",
+      "what_went_wrong": "Failed policy or exemption verification.",
+      "failure_category": "Incorrect policy interpretation",
+      "suggested_correction": "Ensure policy rules state that exemptions only reduce minimum expectations and do not raise max limits.",
+      "execution_time": 0.015,
+      "metadata": {
+        "intent": "exception_lookup",
+        "tool": "get_policy_exceptions"
+      }
+    },
+    {
+      "test_id": "Q023",
+      "category_code": "C",
+      "category_name": "Workload Policies",
+      "question": "Should a pending policy exception override the standard workload limit?",
+      "expected_answer": "No. Only approved and currently valid policy exceptions should override the standard limit.",
+      "actual_answer": "### Institutional Policy Exceptions\nTotal Exceptions Recorded: **3**\n\n| ID | Faculty ID | Status | Max Hours Cap | Approved By | Valid Until | Reason |\n|---|---|---|---|---|---|---|\n| PEX001 | FAC009 | \u2705 Approved | 20.0 hrs | DEAN001 | 2026-11-30 | Temporary additional lab allocation approved by Dean |\n| PEX002 | FAC016 | \u23f3 Pending | 19.0 hrs | DEAN001 | 2026-11-30 | Temporary project delivery requirement |\n| PEX003 | FAC012 | \u274c Rejected | 19.0 hrs | DEAN001 | 2026-11-30 | Additional tutorial allocation |\n\n[Data Source: Worksheet 'Policy_Exceptions' (Record: exception_id=EXC-ALL)]",
+      "status": "PARTIAL",
+      "score": 75,
+      "reason": "Response is partially correct. Matched 0/0 numbers and 1/2 key entities.",
+      "what_went_wrong": "Failed policy or exemption verification.",
+      "failure_category": "Incorrect policy interpretation",
+      "suggested_correction": "Ensure policy rules state that exemptions only reduce minimum expectations and do not raise max limits.",
+      "execution_time": 0.017,
+      "metadata": {
+        "intent": "exception_lookup",
+        "tool": "get_policy_exceptions"
+      }
+    },
+    {
+      "test_id": "Q024",
+      "category_code": "C",
+      "category_name": "Workload Policies",
+      "question": "What happens when a faculty member exceeds their effective workload limit?",
+      "expected_answer": "A workload policy violation must be reported.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.018,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q025",
+      "category_code": "C",
+      "category_name": "Workload Policies",
+      "question": "What is the standard maximum workload for an Assistant Professor?",
+      "expected_answer": "16 teaching hours per week.",
+      "actual_answer": "### Workload Policy for Assistant Professor\n- **Policy ID:** POL-ASST\n- **Standard Maximum Teaching Hours:** **16.0 hrs/week**\n- **Minimum Expected Teaching Hours:** **10.0 hrs/week**\n- **Calculation Rule:** Teaching hours are counted by actual scheduled duration. Approved teaching relief may reduce minimum expectation only.\n- **Validity Period:** 2026-07-01 to 2027-06-30\n- **Source Document:** Approved institutional workload policy - synthetic demo, v1.0 (Page 12)\n\n[Policy Source: Approved institutional workload policy - synthetic demo, v1.0 | Policy ID: POL-ASST | Page 12]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.015,
+      "metadata": {
+        "intent": "policy_lookup",
+        "tool": "get_policy"
+      }
+    },
+    {
+      "test_id": "Q026",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Which faculty member has approved medical leave on 2026-11-12?",
+      "expected_answer": "Ishita Kapoor (FAC010).",
+      "actual_answer": "### Department Leave Records (ALL)\nTotal Leave Records: **1**\n\n| Leave ID | Faculty ID | Type | Start Date | End Date | Status |\n|---|---|---|---|---|---|\n| LV002 | FAC010 | Medical Leave | 2026-11-12 | 2026-11-12 | Approved |\n\n[Data Source: Worksheet 'Leave_Records' (Record: leave_id=LEV-ALL)]",
+      "status": "PARTIAL",
+      "score": 50,
+      "reason": "Response is partially correct. Matched 0/0 numbers and 1/2 key entities.",
+      "what_went_wrong": "Missing leave record entity. Expected ['Ishita Kapoor', 'FAC010'].",
+      "failure_category": "Incorrect Excel retrieval",
+      "suggested_correction": "Ensure Leave_Records sheet is queried with matching date and faculty_id.",
+      "execution_time": 0.024,
+      "metadata": {
+        "intent": "leave_lookup",
+        "tool": "get_department_leave"
+      }
+    },
+    {
+      "test_id": "Q027",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Who replaces Ishita Kapoor during her medical leave?",
+      "expected_answer": "Rohan Shetty (FAC011).",
+      "actual_answer": "### Substitution Details for FAC010\n- **Cancelled Class:** TT0150 (AI502, Section AIML-S7-A) on Thursday 10:00-11:00\n  - Cancellation Reason: Approved leave; session cancelled\n  - **Substitute Faculty:** **Rohan Shetty (FAC011)** [Timetable ID: TT0281]\n\n[Data Source: Worksheet 'Timetable' (Record: faculty_id=FAC010)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.024,
+      "metadata": {
+        "intent": "substitute_lookup",
+        "tool": "get_substitute_allocations"
+      }
+    },
+    {
+      "test_id": "Q028",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Does Karthik Bhat have approved leave on 2026-11-13?",
+      "expected_answer": "No. His Official Duty leave is Pending and has not been approved.",
+      "actual_answer": "### Department Leave Records (ALL)\nTotal Leave Records: **1**\n\n| Leave ID | Faculty ID | Type | Start Date | End Date | Status |\n|---|---|---|---|---|---|\n| LV003 | FAC016 | Official Duty | 2026-11-13 | 2026-11-13 | Pending |\n\n[Data Source: Worksheet 'Leave_Records' (Record: leave_id=LEV-ALL)]",
+      "status": "PARTIAL",
+      "score": 75,
+      "reason": "Response is partially correct. Matched 0/0 numbers and 1/2 key entities.",
+      "what_went_wrong": "Missing leave record entity. Expected ['No', 'Pending'].",
+      "failure_category": "Incorrect Excel retrieval",
+      "suggested_correction": "Ensure Leave_Records sheet is queried with matching date and faculty_id.",
+      "execution_time": 0.018,
+      "metadata": {
+        "intent": "leave_lookup",
+        "tool": "get_department_leave"
+      }
+    },
+    {
+      "test_id": "Q029",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Which faculty member has rejected leave in December 2026?",
+      "expected_answer": "Kavya Sharma (FAC003). Her Earned Leave from December 2 to December 4 was Rejected.",
+      "actual_answer": "### Department Leave Records (ALL)\nTotal Leave Records: **3**\n\n| Leave ID | Faculty ID | Type | Start Date | End Date | Status |\n|---|---|---|---|---|---|\n| LV001 | FAC004 | Casual Leave | 2026-11-11 | 2026-11-11 | Approved |\n| LV002 | FAC010 | Medical Leave | 2026-11-12 | 2026-11-12 | Approved |\n| LV003 | FAC016 | Official Duty | 2026-11-13 | 2026-11-13 | Pending |\n\n[Data Source: Worksheet 'Leave_Records' (Record: leave_id=LEV-ALL)]",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Missing leave record entity. Expected ['Kavya Sharma', 'FAC003', 'Rejected'].",
+      "failure_category": "Incorrect Excel retrieval",
+      "suggested_correction": "Ensure Leave_Records sheet is queried with matching date and faculty_id.",
+      "execution_time": 0.019,
+      "metadata": {
+        "intent": "leave_lookup",
+        "tool": "get_department_leave"
+      }
+    },
+    {
+      "test_id": "Q030",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Who is replacing Rahul Das during his approved leave on November 11?",
+      "expected_answer": "Sneha Thomas (FAC005).",
+      "actual_answer": "### Substitution Details for FAC004\n- **Cancelled Class:** TT0053 (CS501, Section CSE-S5-B) on Wednesday 11:15-12:15\n  - Cancellation Reason: Approved leave; session cancelled\n  - **Substitute Faculty:** **Sneha Thomas (FAC005)** [Timetable ID: TT0280]\n\n[Data Source: Worksheet 'Timetable' (Record: faculty_id=FAC004)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.021,
+      "metadata": {
+        "intent": "substitute_lookup",
+        "tool": "get_substitute_allocations"
+      }
+    },
+    {
+      "test_id": "Q031",
+      "category_code": "D",
+      "category_name": "Leave Management",
+      "question": "Which faculty member has approved leave on November 20?",
+      "expected_answer": "Farah Khan (FAC017). Her replacement is Neha Reddy (FAC015).",
+      "actual_answer": "### Department Leave Records (ALL)\nTotal Leave Records: **3**\n\n| Leave ID | Faculty ID | Type | Start Date | End Date | Status |\n|---|---|---|---|---|---|\n| LV001 | FAC004 | Casual Leave | 2026-11-11 | 2026-11-11 | Approved |\n| LV002 | FAC010 | Medical Leave | 2026-11-12 | 2026-11-12 | Approved |\n| LV003 | FAC016 | Official Duty | 2026-11-13 | 2026-11-13 | Pending |\n\n[Data Source: Worksheet 'Leave_Records' (Record: leave_id=LEV-ALL)]",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Missing leave record entity. Expected ['Farah Khan', 'FAC017', 'Neha Reddy', 'FAC015'].",
+      "failure_category": "Incorrect Excel retrieval",
+      "suggested_correction": "Ensure Leave_Records sheet is queried with matching date and faculty_id.",
+      "execution_time": 0.021,
+      "metadata": {
+        "intent": "leave_lookup",
+        "tool": "get_department_leave"
+      }
+    },
+    {
+      "test_id": "Q032",
+      "category_code": "E",
+      "category_name": "Assignment Management",
+      "question": "How many assignments are assigned to Dr. Meera Nair?",
+      "expected_answer": "3.",
+      "actual_answer": "### Academic Assignments for Dr. Meera Nair (FAC001)\nTotal Assigned: 3\nStatus Breakdown: Pending: 1, In Progress: 1, Completed: 1\nType Breakdown: Internal Assessment Evaluation: 1, Question Paper Preparation: 1, Project Supervision: 1\n\n| ID | Assignment Type | Subject | Due Date | Priority | Status | Overdue? |\n|---|---|---|---|---|---|---|\n| AS-FAC001-1 | Internal Assessment Evaluation | Operating Systems | 2026-11-12 | High | Pending | \u26a0\ufe0f YES |\n| AS-FAC001-2 | Question Paper Preparation | Computer Networks | 2026-11-13 | Medium | In Progress | \u26a0\ufe0f YES |\n| AS-FAC001-3 | Project Supervision | Operating Systems | 2026-11-14 | Medium | Completed | No |\n\n*Notice: Assignments are non-teaching academic responsibilities and are tracked separately from scheduled teaching hours.*\n[Data Source: Worksheet 'Assignments' (Record: faculty_id=FAC001)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.023,
+      "metadata": {
+        "intent": "assignment_lookup",
+        "tool": "get_faculty_assignments"
+      }
+    },
+    {
+      "test_id": "Q033",
+      "category_code": "E",
+      "category_name": "Assignment Management",
+      "question": "What is Dr. Meera Nair's pending assignment?",
+      "expected_answer": "Internal Assessment Evaluation for CS501, due on 2026-11-12.",
+      "actual_answer": "### Academic Assignments for Dr. Meera Nair (FAC001)\nTotal Assigned: 1\nStatus Breakdown: Pending: 1\nType Breakdown: Internal Assessment Evaluation: 1\n\n| ID | Assignment Type | Subject | Due Date | Priority | Status | Overdue? |\n|---|---|---|---|---|---|---|\n| AS-FAC001-1 | Internal Assessment Evaluation | Operating Systems | 2026-11-12 | High | Pending | \u26a0\ufe0f YES |\n\n*Notice: Assignments are non-teaching academic responsibilities and are tracked separately from scheduled teaching hours.*\n[Data Source: Worksheet 'Assignments' (Record: faculty_id=FAC001)]",
+      "status": "PARTIAL",
+      "score": 50,
+      "reason": "Response is partially correct. Matched 0/0 numbers and 1/2 key entities.",
+      "what_went_wrong": "Factual verification failed. Missing entities (1/2 found).",
+      "failure_category": "Missing context",
+      "suggested_correction": "Provide the required relational context to the response generator.",
+      "execution_time": 0.022,
+      "metadata": {
+        "intent": "pending_assignment_lookup",
+        "tool": "get_faculty_assignments"
+      }
+    },
+    {
+      "test_id": "Q034",
+      "category_code": "E",
+      "category_name": "Assignment Management",
+      "question": "What is the status of her Question Paper Preparation assignment?",
+      "expected_answer": "In Progress. It is for CS502 and is due on 2026-11-13.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.019,
+      "metadata": {
+        "intent": "assignment_lookup",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q035",
+      "category_code": "E",
+      "category_name": "Assignment Management",
+      "question": "Which assignments are assigned to Arjun Menon?",
+      "expected_answer": "- Question Paper Preparation.\n- Project Supervision.\n- Exam Invigilation.",
+      "actual_answer": "### Academic Assignments for Arjun Menon (FAC002)\nTotal Assigned: 3\nStatus Breakdown: In Progress: 1, Completed: 1, Pending: 1\nType Breakdown: Question Paper Preparation: 1, Project Supervision: 1, Exam Invigilation: 1\n\n| ID | Assignment Type | Subject | Due Date | Priority | Status | Overdue? |\n|---|---|---|---|---|---|---|\n| AS-FAC002-1 | Question Paper Preparation | Computer Networks | 2026-11-13 | High | In Progress | \u26a0\ufe0f YES |\n| AS-FAC002-2 | Project Supervision | Database Systems | 2026-11-14 | Medium | Completed | No |\n| AS-FAC002-3 | Exam Invigilation | Computer Networks | 2026-11-15 | Medium | Pending | No |\n\n*Notice: Assignments are non-teaching academic responsibilities and are tracked separately from scheduled teaching hours.*\n[Data Source: Worksheet 'Assignments' (Record: faculty_id=FAC002)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.019,
+      "metadata": {
+        "intent": "assignment_lookup",
+        "tool": "get_faculty_assignments"
+      }
+    },
+    {
+      "test_id": "Q036",
+      "category_code": "E",
+      "category_name": "Assignment Management",
+      "question": "What is the status of Arjun Menon's Exam Invigilation assignment?",
+      "expected_answer": "Pending. Due date: 2026-11-15.",
+      "actual_answer": "### Academic Assignments for Arjun Menon (FAC002)\nTotal Assigned: 3\nStatus Breakdown: In Progress: 1, Completed: 1, Pending: 1\nType Breakdown: Question Paper Preparation: 1, Project Supervision: 1, Exam Invigilation: 1\n\n| ID | Assignment Type | Subject | Due Date | Priority | Status | Overdue? |\n|---|---|---|---|---|---|---|\n| AS-FAC002-1 | Question Paper Preparation | Computer Networks | 2026-11-13 | High | In Progress | \u26a0\ufe0f YES |\n| AS-FAC002-2 | Project Supervision | Database Systems | 2026-11-14 | Medium | Completed | No |\n| AS-FAC002-3 | Exam Invigilation | Computer Networks | 2026-11-15 | Medium | Pending | No |\n\n*Notice: Assignments are non-teaching academic responsibilities and are tracked separately from scheduled teaching hours.*\n[Data Source: Worksheet 'Assignments' (Record: faculty_id=FAC002)]",
+      "status": "PARTIAL",
+      "score": 50,
+      "reason": "Response is partially correct. Matched 0/0 numbers and 1/2 key entities.",
+      "what_went_wrong": "Factual verification failed. Missing entities (1/2 found).",
+      "failure_category": "Missing context",
+      "suggested_correction": "Provide the required relational context to the response generator.",
+      "execution_time": 0.017,
+      "metadata": {
+        "intent": "assignment_lookup",
+        "tool": "get_faculty_assignments"
+      }
+    },
+    {
+      "test_id": "Q037",
+      "category_code": "E",
+      "category_name": "Assignment Management",
+      "question": "How many assignments are present in the dataset?",
+      "expected_answer": "54.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.015,
+      "metadata": {
+        "intent": "assignment_lookup",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q038",
+      "category_code": "E",
+      "category_name": "Assignment Management",
+      "question": "How many assignments does each faculty member have?",
+      "expected_answer": "3 assignments per faculty member.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.016,
+      "metadata": {
+        "intent": "assignment_lookup",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q039",
+      "category_code": "F",
+      "category_name": "Timetable",
+      "question": "How many timetable records are present?",
+      "expected_answer": "281.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID specified or associated with user context.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID specified or associated with user context.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID specified or associated with user context.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.016,
+      "metadata": {
+        "intent": "timetable_lookup",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q040",
+      "category_code": "F",
+      "category_name": "Timetable",
+      "question": "How many timetable sessions are Active?",
+      "expected_answer": "277.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID specified or associated with user context.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID specified or associated with user context.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID specified or associated with user context.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.016,
+      "metadata": {
+        "intent": "timetable_lookup",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q041",
+      "category_code": "F",
+      "category_name": "Timetable",
+      "question": "Are cancelled sessions included in workload calculations?",
+      "expected_answer": "No. Cancelled sessions must be excluded.",
+      "actual_answer": "An error occurred while retrieving data: Faculty with ID 'None' not found.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: Faculty with ID 'None' not found.",
+      "what_went_wrong": "Inference engine returned an error: Faculty with ID 'None' not found.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.019,
+      "metadata": {
+        "intent": "substitute_lookup",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q042",
+      "category_code": "F",
+      "category_name": "Timetable",
+      "question": "Do laboratory hours count towards teaching workload?",
+      "expected_answer": "Yes. Laboratory hours count at actual scheduled duration, with a weight of 1.0.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.014,
+      "metadata": {
+        "intent": "laboratory_hours",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q043",
+      "category_code": "F",
+      "category_name": "Timetable",
+      "question": "Do tutorial hours count towards teaching workload?",
+      "expected_answer": "Yes. Tutorial hours count at actual scheduled duration, with a weight of 1.0.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.015,
+      "metadata": {
+        "intent": "tutorial_hours",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q044",
+      "category_code": "F",
+      "category_name": "Timetable",
+      "question": "Does project supervision count as weekly teaching workload?",
+      "expected_answer": "No. It is tracked separately as an assignment or responsibility.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.016,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q045",
+      "category_code": "F",
+      "category_name": "Timetable",
+      "question": "Does exam invigilation count towards weekly teaching hours?",
+      "expected_answer": "No. It is tracked separately as examination duty.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.014,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q046",
+      "category_code": "F",
+      "category_name": "Timetable",
+      "question": "How are substituted sessions counted?",
+      "expected_answer": "The workload is credited to the substitute faculty member, not the original faculty member.",
+      "actual_answer": "An error occurred while retrieving data: Faculty with ID 'None' not found.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: Faculty with ID 'None' not found.",
+      "what_went_wrong": "Inference engine returned an error: Faculty with ID 'None' not found.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.016,
+      "metadata": {
+        "intent": "substitute_lookup",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q047",
+      "category_code": "F",
+      "category_name": "Timetable",
+      "question": "What is the workload calculation period?",
+      "expected_answer": "Weekly.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.013,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q048",
+      "category_code": "F",
+      "category_name": "Timetable",
+      "question": "What is the academic year?",
+      "expected_answer": "2026-27.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Factual verification failed. Missing entities (0/1 found).",
+      "failure_category": "Missing context",
+      "suggested_correction": "Provide the required relational context to the response generator.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q049",
+      "category_code": "G",
+      "category_name": "Subject Retrieval",
+      "question": "Which subject has ID CS501?",
+      "expected_answer": "Operating Systems.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Subject details missing. Expected ['Operating Systems', 'CS501'].",
+      "failure_category": "Incorrect sheet selection",
+      "suggested_correction": "Query the 'Subjects' table directly using subject_id or subject_name.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q050",
+      "category_code": "G",
+      "category_name": "Subject Retrieval",
+      "question": "Which department offers AI501?",
+      "expected_answer": "Artificial Intelligence and Machine Learning (AIML).",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Subject details missing. Expected ['Artificial Intelligence and Machine Learning', 'AIML'].",
+      "failure_category": "Incorrect sheet selection",
+      "suggested_correction": "Query the 'Subjects' table directly using subject_id or subject_name.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q051",
+      "category_code": "G",
+      "category_name": "Subject Retrieval",
+      "question": "What is the subject name for DS503?",
+      "expected_answer": "Data Visualization.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Subject details missing. Expected ['Data Visualization', 'DS503'].",
+      "failure_category": "Incorrect sheet selection",
+      "suggested_correction": "Query the 'Subjects' table directly using subject_id or subject_name.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q052",
+      "category_code": "G",
+      "category_name": "Subject Retrieval",
+      "question": "Which subject is associated with AI504?",
+      "expected_answer": "Computer Vision.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Subject details missing. Expected ['Computer Vision', 'AI504'].",
+      "failure_category": "Incorrect sheet selection",
+      "suggested_correction": "Query the 'Subjects' table directly using subject_id or subject_name.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q053",
+      "category_code": "G",
+      "category_name": "Subject Retrieval",
+      "question": "How many subjects are available?",
+      "expected_answer": "12.",
+      "actual_answer": "### Available Faculty Members \u2014 Friday (09:00 - 12:00)\nTotal Available Faculty: **2**\n\n| Faculty ID | Name | Department | Designation |\n|---|---|---|---|\n| FAC005 | Sneha Thomas | DEP-CSE | Assistant Professor |\n| FAC013 | Dr. Ananya Iyer | DEP-DS | Professor |\n\n[Data Source: Worksheet 'Timetable' (Record: day=Friday)]",
+      "status": "PASS",
+      "score": 100,
+      "reason": "Response accurately reflects ground truth facts, numbers, and logical reasoning.",
+      "what_went_wrong": "None",
+      "failure_category": "None",
+      "suggested_correction": "None",
+      "execution_time": 0.011,
+      "metadata": {
+        "intent": "availability_lookup",
+        "tool": "get_free_faculty"
+      }
+    },
+    {
+      "test_id": "Q054",
+      "category_code": "G",
+      "category_name": "Subject Retrieval",
+      "question": "Which semester is CS503 offered in?",
+      "expected_answer": "Semester 7.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 0,
+      "reason": "Response failed factual verification. Missing required ground truth entities/values.",
+      "what_went_wrong": "Subject details missing. Expected ['Semester 7'].",
+      "failure_category": "Incorrect sheet selection",
+      "suggested_correction": "Query the 'Subjects' table directly using subject_id or subject_name.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q055",
+      "category_code": "H",
+      "category_name": "Advanced Reasoning",
+      "question": "If a faculty member teaches 18 hours and has a maximum limit of 16 hours, how much excess workload do they have?",
+      "expected_answer": "2 hours.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.013,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q056",
+      "category_code": "H",
+      "category_name": "Advanced Reasoning",
+      "question": "If a faculty member has 19 hours and an approved maximum override of 20 hours, is there a violation?",
+      "expected_answer": "No. The faculty member is within the approved limit.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.014,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q057",
+      "category_code": "H",
+      "category_name": "Advanced Reasoning",
+      "question": "If a policy exception is Pending, should it be considered when calculating the effective maximum?",
+      "expected_answer": "No. Pending exceptions must not override the standard policy.",
+      "actual_answer": "### Institutional Policy Exceptions\nTotal Exceptions Recorded: **3**\n\n| ID | Faculty ID | Status | Max Hours Cap | Approved By | Valid Until | Reason |\n|---|---|---|---|---|---|---|\n| PEX001 | FAC009 | \u2705 Approved | 20.0 hrs | DEAN001 | 2026-11-30 | Temporary additional lab allocation approved by Dean |\n| PEX002 | FAC016 | \u23f3 Pending | 19.0 hrs | DEAN001 | 2026-11-30 | Temporary project delivery requirement |\n| PEX003 | FAC012 | \u274c Rejected | 19.0 hrs | DEAN001 | 2026-11-30 | Additional tutorial allocation |\n\n[Data Source: Worksheet 'Policy_Exceptions' (Record: exception_id=EXC-ALL)]",
+      "status": "PARTIAL",
+      "score": 75,
+      "reason": "Response is partially correct. Matched 0/0 numbers and 1/2 key entities.",
+      "what_went_wrong": "Logical reasoning did not match policy rules.",
+      "failure_category": "LLM reasoning failure",
+      "suggested_correction": "Ensure prompt or deterministic rule applies effective limit = standard limit + approved exceptions.",
+      "execution_time": 0.014,
+      "metadata": {
+        "intent": "exception_lookup",
+        "tool": "get_policy_exceptions"
+      }
+    },
+    {
+      "test_id": "Q058",
+      "category_code": "H",
+      "category_name": "Advanced Reasoning",
+      "question": "Does a faculty member with 12 teaching hours violate the Professor workload policy?",
+      "expected_answer": "No. The Professor maximum is 12 hours. The faculty member is exactly at the maximum.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.014,
+      "metadata": {
+        "intent": "workload_violation",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q059",
+      "category_code": "H",
+      "category_name": "Advanced Reasoning",
+      "question": "If a one-hour lecture is cancelled, should it count towards workload?",
+      "expected_answer": "No.",
+      "actual_answer": "An error occurred while retrieving data: Faculty with ID 'None' not found.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: Faculty with ID 'None' not found.",
+      "what_went_wrong": "Inference engine returned an error: Faculty with ID 'None' not found.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.018,
+      "metadata": {
+        "intent": "substitute_lookup",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q060",
+      "category_code": "H",
+      "category_name": "Advanced Reasoning",
+      "question": "If a faculty member conducts a two-hour laboratory, how many teaching hours should be counted?",
+      "expected_answer": "2 hours.",
+      "actual_answer": "An error occurred while retrieving data: No faculty ID provided or authenticated.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: No faculty ID provided or authenticated.",
+      "what_went_wrong": "Inference engine returned an error: No faculty ID provided or authenticated.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.016,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q061",
+      "category_code": "H",
+      "category_name": "Advanced Reasoning",
+      "question": "If a substitute conducts a one-hour class, who receives the workload credit?",
+      "expected_answer": "The substitute faculty member receives one teaching hour. The original faculty member does not receive the credit.",
+      "actual_answer": "An error occurred while retrieving data: Faculty with ID 'None' not found.",
+      "status": "ERROR",
+      "score": 0,
+      "reason": "Execution failed or produced empty response: Faculty with ID 'None' not found.",
+      "what_went_wrong": "Inference engine returned an error: Faculty with ID 'None' not found.",
+      "failure_category": "API or execution error",
+      "suggested_correction": "Inspect service logs and ensure database/LLM connectivity.",
+      "execution_time": 0.02,
+      "metadata": {
+        "intent": "substitute_lookup",
+        "tool": "error"
+      }
+    },
+    {
+      "test_id": "Q062",
+      "category_code": "H",
+      "category_name": "Advanced Reasoning",
+      "question": "Can an HOD's administrative relief be added to the maximum workload limit?",
+      "expected_answer": "No. Approved administrative relief reduces the minimum teaching expectation only.",
+      "actual_answer": "I could not find sufficient information in the available institutional dataset to answer this question accurately. (No policy limit found for specified role)",
+      "status": "PARTIAL",
+      "score": 75,
+      "reason": "Response is partially correct. Matched 0/0 numbers and 1/2 key entities.",
+      "what_went_wrong": "Logical reasoning did not match policy rules.",
+      "failure_category": "LLM reasoning failure",
+      "suggested_correction": "Ensure prompt or deterministic rule applies effective limit = standard limit + approved exceptions.",
+      "execution_time": 0.016,
+      "metadata": {
+        "intent": "policy_lookup",
+        "tool": "get_policy"
+      }
+    },
+    {
+      "test_id": "Q063",
+      "category_code": "I",
+      "category_name": "Hallucination Prevention",
+      "question": "What is the salary of Dr. Meera Nair?",
+      "expected_answer": "Salary information is not available in the dataset. The LLM must not invent a salary.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "HALLUCINATION",
+      "score": 0,
+      "reason": "Hallucination: Invented a numerical salary figure.",
+      "what_went_wrong": "Model fabricated nonexistent information for missing dataset attribute: Invented a numerical salary figure.",
+      "failure_category": "Hallucination",
+      "suggested_correction": "Add strict guardrails instructing model to state that the dataset does not contain this attribute.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q064",
+      "category_code": "I",
+      "category_name": "Hallucination Prevention",
+      "question": "What is the home address of FAC001?",
+      "expected_answer": "Home address information is not available in the dataset.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 20,
+      "reason": "Model failed to explicitly acknowledge that the requested information is absent from the dataset.",
+      "what_went_wrong": "Did not state that information is unavailable in the dataset.",
+      "failure_category": "Missing context",
+      "suggested_correction": "Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q065",
+      "category_code": "I",
+      "category_name": "Hallucination Prevention",
+      "question": "What is the age of Arjun Menon?",
+      "expected_answer": "Age information is not available in the dataset.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 20,
+      "reason": "Model failed to explicitly acknowledge that the requested information is absent from the dataset.",
+      "what_went_wrong": "Did not state that information is unavailable in the dataset.",
+      "failure_category": "Missing context",
+      "suggested_correction": "Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q066",
+      "category_code": "I",
+      "category_name": "Hallucination Prevention",
+      "question": "What is the attendance percentage of FAC005?",
+      "expected_answer": "Attendance percentage is not available in the dataset.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 20,
+      "reason": "Model failed to explicitly acknowledge that the requested information is absent from the dataset.",
+      "what_went_wrong": "Did not state that information is unavailable in the dataset.",
+      "failure_category": "Missing context",
+      "suggested_correction": "Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q067",
+      "category_code": "I",
+      "category_name": "Hallucination Prevention",
+      "question": "What was the workload of FAC001 in November 2025?",
+      "expected_answer": "The dataset does not contain November-specific records for 2025. It contains historical academic-year and term-level aggregates for 2024-25 and 2025-26. The LLM must not invent a November-specific value.",
+      "actual_answer": "### Teaching Workload for Dr. Meera Nair (FAC001)\n**Target Week:** 2026-11-09\n**Total Scheduled Teaching Hours:** **15.0 hours**\n\n**Calculation Basis (from Timetable):**\n- Lectures: 10.0 hrs\n- Tutorials: 2.0 hrs\n- Laboratories: 3.0 hrs\n\n*Note: Cancelled sessions are excluded. Academic responsibilities (projects, exams) are tracked separately as assignments.*\n[Data Source: Worksheet 'Timetable' (Record: faculty_id=FAC001)]",
+      "status": "FAIL",
+      "score": 20,
+      "reason": "Model failed to explicitly acknowledge that the requested information is absent from the dataset.",
+      "what_went_wrong": "Did not state that information is unavailable in the dataset.",
+      "failure_category": "Missing context",
+      "suggested_correction": "Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.",
+      "execution_time": 0.025,
+      "metadata": {
+        "intent": "faculty_workload",
+        "tool": "get_teaching_hours"
+      }
+    },
+    {
+      "test_id": "Q068",
+      "category_code": "I",
+      "category_name": "Hallucination Prevention",
+      "question": "What is the GPA of FAC007?",
+      "expected_answer": "GPA information is not available in the dataset.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 20,
+      "reason": "Model failed to explicitly acknowledge that the requested information is absent from the dataset.",
+      "what_went_wrong": "Did not state that information is unavailable in the dataset.",
+      "failure_category": "Missing context",
+      "suggested_correction": "Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    },
+    {
+      "test_id": "Q069",
+      "category_code": "I",
+      "category_name": "Hallucination Prevention",
+      "question": "Who is the Dean of the university?",
+      "expected_answer": "The Dean's identity is not established by the available dataset. DEAN001 appears as an approver identifier, but no corresponding Dean name is provided.",
+      "actual_answer": "I couldn't identify the specific workload, timetable, or policy request. Please specify whether you are asking about daily hours, weekly workload, assignments, or policy rules.",
+      "status": "FAIL",
+      "score": 20,
+      "reason": "Model failed to explicitly acknowledge that the requested information is absent from the dataset.",
+      "what_went_wrong": "Did not state that information is unavailable in the dataset.",
+      "failure_category": "Missing context",
+      "suggested_correction": "Ensure ambiguous or unknown attributes trigger an explicit unavailable information notice.",
+      "execution_time": 0.001,
+      "metadata": {
+        "intent": "unknown_or_ambiguous",
+        "tool": "unknown"
+      }
+    }
+  ]
+}

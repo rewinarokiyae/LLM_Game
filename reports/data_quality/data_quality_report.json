@@ -1,0 +1,1802 @@
+{
+  "metadata": {
+    "dataset_file": "./data/faculty_workload_dummy_dataset.xlsx",
+    "audit_timestamp": "2026-11-11T13:07:55.298852",
+    "sheet_count": 21,
+    "sheet_names": [
+      "Departments",
+      "Faculty",
+      "Users_Roles",
+      "Sections",
+      "Subjects",
+      "Workload_Policies",
+      "Workload_Rules",
+      "Faculty_Subject_Allocations",
+      "Timetable",
+      "Assignments",
+      "Leave_Records",
+      "Faculty_Availability",
+      "Workload_Exemptions",
+      "Policy_Exceptions",
+      "Academic_Calendar",
+      "Historical_Workload",
+      "Workload_Summary",
+      "Rooms",
+      "Test_Queries",
+      "README",
+      "Data_Dictionary"
+    ],
+    "total_rows": 648
+  },
+  "sheets_inventory": {
+    "Departments": {
+      "row_count": 3,
+      "column_count": 5,
+      "columns": [
+        "department_id",
+        "department_name",
+        "hod_name",
+        "hod_faculty_id",
+        "department_code"
+      ],
+      "column_details": {
+        "department_id": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "department_name": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "hod_name": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "hod_faculty_id": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "department_code": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        }
+      }
+    },
+    "Faculty": {
+      "row_count": 18,
+      "column_count": 11,
+      "columns": [
+        "faculty_id",
+        "faculty_name",
+        "department_id",
+        "designation",
+        "faculty_category",
+        "qualification",
+        "specialization",
+        "joining_date",
+        "employment_status",
+        "employment_type",
+        "country"
+      ],
+      "column_details": {
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "faculty_name": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "department_id": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "designation": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "faculty_category": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "qualification": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "specialization": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 6
+        },
+        "joining_date": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 7
+        },
+        "employment_status": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "employment_type": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "country": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Users_Roles": {
+      "row_count": 19,
+      "column_count": 7,
+      "columns": [
+        "user_id",
+        "username",
+        "faculty_id",
+        "role",
+        "department_scope",
+        "account_status",
+        "notes"
+      ],
+      "column_details": {
+        "user_id": {
+          "dtype": "object",
+          "non_null_count": 19,
+          "null_count": 0,
+          "unique_count": 19
+        },
+        "username": {
+          "dtype": "object",
+          "non_null_count": 19,
+          "null_count": 0,
+          "unique_count": 19
+        },
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 1,
+          "unique_count": 18
+        },
+        "role": {
+          "dtype": "object",
+          "non_null_count": 19,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "department_scope": {
+          "dtype": "object",
+          "non_null_count": 19,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "account_status": {
+          "dtype": "object",
+          "non_null_count": 19,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "notes": {
+          "dtype": "object",
+          "non_null_count": 19,
+          "null_count": 0,
+          "unique_count": 2
+        }
+      }
+    },
+    "Sections": {
+      "row_count": 12,
+      "column_count": 7,
+      "columns": [
+        "section_id",
+        "department_id",
+        "program_code",
+        "section_name",
+        "semester",
+        "academic_year",
+        "term"
+      ],
+      "column_details": {
+        "section_id": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "department_id": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "program_code": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "section_name": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "semester": {
+          "dtype": "int64",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "academic_year": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "term": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Subjects": {
+      "row_count": 12,
+      "column_count": 11,
+      "columns": [
+        "subject_id",
+        "subject_name",
+        "department_id",
+        "semester",
+        "weekly_theory_hours_reference",
+        "weekly_practical_hours_reference",
+        "weekly_tutorial_hours_reference",
+        "subject_type",
+        "credits",
+        "academic_year",
+        "term"
+      ],
+      "column_details": {
+        "subject_id": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "subject_name": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "department_id": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "semester": {
+          "dtype": "int64",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "weekly_theory_hours_reference": {
+          "dtype": "int64",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "weekly_practical_hours_reference": {
+          "dtype": "int64",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "weekly_tutorial_hours_reference": {
+          "dtype": "int64",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "subject_type": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "credits": {
+          "dtype": "int64",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "academic_year": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "term": {
+          "dtype": "object",
+          "non_null_count": 12,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Workload_Policies": {
+      "row_count": 4,
+      "column_count": 11,
+      "columns": [
+        "policy_id",
+        "designation",
+        "department_scope",
+        "max_teaching_hours_week",
+        "min_teaching_hours_week",
+        "measurement_period",
+        "calculation_rule",
+        "effective_from",
+        "effective_to",
+        "source_document",
+        "source_page"
+      ],
+      "column_details": {
+        "policy_id": {
+          "dtype": "object",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "designation": {
+          "dtype": "object",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "department_scope": {
+          "dtype": "object",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "max_teaching_hours_week": {
+          "dtype": "int64",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "min_teaching_hours_week": {
+          "dtype": "int64",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "measurement_period": {
+          "dtype": "object",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "calculation_rule": {
+          "dtype": "object",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "effective_from": {
+          "dtype": "object",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "effective_to": {
+          "dtype": "object",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "source_document": {
+          "dtype": "object",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "source_page": {
+          "dtype": "int64",
+          "non_null_count": 4,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Workload_Rules": {
+      "row_count": 7,
+      "column_count": 6,
+      "columns": [
+        "rule_id",
+        "session_type",
+        "weight",
+        "calculation_method",
+        "included_in_teaching_hours",
+        "rule_description"
+      ],
+      "column_details": {
+        "rule_id": {
+          "dtype": "object",
+          "non_null_count": 7,
+          "null_count": 0,
+          "unique_count": 7
+        },
+        "session_type": {
+          "dtype": "object",
+          "non_null_count": 7,
+          "null_count": 0,
+          "unique_count": 7
+        },
+        "weight": {
+          "dtype": "float64",
+          "non_null_count": 7,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "calculation_method": {
+          "dtype": "object",
+          "non_null_count": 7,
+          "null_count": 0,
+          "unique_count": 5
+        },
+        "included_in_teaching_hours": {
+          "dtype": "object",
+          "non_null_count": 7,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "rule_description": {
+          "dtype": "object",
+          "non_null_count": 7,
+          "null_count": 0,
+          "unique_count": 7
+        }
+      }
+    },
+    "Faculty_Subject_Allocations": {
+      "row_count": 36,
+      "column_count": 10,
+      "columns": [
+        "allocation_id",
+        "faculty_id",
+        "subject_id",
+        "section_id",
+        "allocation_type",
+        "approval_status",
+        "academic_year",
+        "term",
+        "valid_from",
+        "valid_to"
+      ],
+      "column_details": {
+        "allocation_id": {
+          "dtype": "object",
+          "non_null_count": 36,
+          "null_count": 0,
+          "unique_count": 36
+        },
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 36,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "subject_id": {
+          "dtype": "object",
+          "non_null_count": 36,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "section_id": {
+          "dtype": "object",
+          "non_null_count": 36,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "allocation_type": {
+          "dtype": "object",
+          "non_null_count": 36,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "approval_status": {
+          "dtype": "object",
+          "non_null_count": 36,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "academic_year": {
+          "dtype": "object",
+          "non_null_count": 36,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "term": {
+          "dtype": "object",
+          "non_null_count": 36,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "valid_from": {
+          "dtype": "object",
+          "non_null_count": 36,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "valid_to": {
+          "dtype": "object",
+          "non_null_count": 36,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Timetable": {
+      "row_count": 281,
+      "column_count": 19,
+      "columns": [
+        "timetable_id",
+        "faculty_id",
+        "faculty_name",
+        "subject_id",
+        "section_id",
+        "day",
+        "start_time",
+        "end_time",
+        "duration_hours",
+        "session_type",
+        "room",
+        "academic_year",
+        "term",
+        "week_start",
+        "week_end",
+        "status",
+        "substitute_for_faculty_id",
+        "substitution_of_timetable_id",
+        "version"
+      ],
+      "column_details": {
+        "timetable_id": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 281
+        },
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "faculty_name": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "subject_id": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "section_id": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "day": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 5
+        },
+        "start_time": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 8
+        },
+        "end_time": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 8
+        },
+        "duration_hours": {
+          "dtype": "int64",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "session_type": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "room": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 24
+        },
+        "academic_year": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "term": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "week_start": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "week_end": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "status": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "substitute_for_faculty_id": {
+          "dtype": "object",
+          "non_null_count": 2,
+          "null_count": 279,
+          "unique_count": 2
+        },
+        "substitution_of_timetable_id": {
+          "dtype": "object",
+          "non_null_count": 4,
+          "null_count": 277,
+          "unique_count": 3
+        },
+        "version": {
+          "dtype": "object",
+          "non_null_count": 281,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Assignments": {
+      "row_count": 54,
+      "column_count": 12,
+      "columns": [
+        "assignment_id",
+        "faculty_id",
+        "assignment_type",
+        "subject_id",
+        "description",
+        "assigned_date",
+        "due_date",
+        "status",
+        "priority",
+        "academic_year",
+        "term",
+        "assigned_by"
+      ],
+      "column_details": {
+        "assignment_id": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 54
+        },
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "assignment_type": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 8
+        },
+        "subject_id": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "description": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "assigned_date": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "due_date": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "status": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "priority": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "academic_year": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "term": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "assigned_by": {
+          "dtype": "object",
+          "non_null_count": 54,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Leave_Records": {
+      "row_count": 6,
+      "column_count": 9,
+      "columns": [
+        "leave_id",
+        "faculty_id",
+        "leave_type",
+        "start_date",
+        "end_date",
+        "approval_status",
+        "replacement_faculty_id",
+        "reason",
+        "approved_by"
+      ],
+      "column_details": {
+        "leave_id": {
+          "dtype": "object",
+          "non_null_count": 6,
+          "null_count": 0,
+          "unique_count": 6
+        },
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 6,
+          "null_count": 0,
+          "unique_count": 6
+        },
+        "leave_type": {
+          "dtype": "object",
+          "non_null_count": 6,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "start_date": {
+          "dtype": "object",
+          "non_null_count": 6,
+          "null_count": 0,
+          "unique_count": 6
+        },
+        "end_date": {
+          "dtype": "object",
+          "non_null_count": 6,
+          "null_count": 0,
+          "unique_count": 6
+        },
+        "approval_status": {
+          "dtype": "object",
+          "non_null_count": 6,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "replacement_faculty_id": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 3,
+          "unique_count": 3
+        },
+        "reason": {
+          "dtype": "object",
+          "non_null_count": 6,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "approved_by": {
+          "dtype": "object",
+          "non_null_count": 6,
+          "null_count": 0,
+          "unique_count": 3
+        }
+      }
+    },
+    "Faculty_Availability": {
+      "row_count": 18,
+      "column_count": 8,
+      "columns": [
+        "availability_id",
+        "faculty_id",
+        "period_start",
+        "period_end",
+        "availability_status",
+        "available_from",
+        "available_to",
+        "notes"
+      ],
+      "column_details": {
+        "availability_id": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "period_start": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "period_end": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "availability_status": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "available_from": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "available_to": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "notes": {
+          "dtype": "float64",
+          "non_null_count": 0,
+          "null_count": 18,
+          "unique_count": 0
+        }
+      }
+    },
+    "Workload_Exemptions": {
+      "row_count": 5,
+      "column_count": 10,
+      "columns": [
+        "exemption_id",
+        "faculty_id",
+        "responsibility",
+        "relief_hours_per_week",
+        "period",
+        "approval_status",
+        "valid_from",
+        "valid_to",
+        "reason",
+        "approved_by"
+      ],
+      "column_details": {
+        "exemption_id": {
+          "dtype": "object",
+          "non_null_count": 5,
+          "null_count": 0,
+          "unique_count": 5
+        },
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 5,
+          "null_count": 0,
+          "unique_count": 5
+        },
+        "responsibility": {
+          "dtype": "object",
+          "non_null_count": 5,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "relief_hours_per_week": {
+          "dtype": "int64",
+          "non_null_count": 5,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "period": {
+          "dtype": "object",
+          "non_null_count": 5,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "approval_status": {
+          "dtype": "object",
+          "non_null_count": 5,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "valid_from": {
+          "dtype": "object",
+          "non_null_count": 5,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "valid_to": {
+          "dtype": "object",
+          "non_null_count": 5,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "reason": {
+          "dtype": "object",
+          "non_null_count": 5,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "approved_by": {
+          "dtype": "object",
+          "non_null_count": 5,
+          "null_count": 0,
+          "unique_count": 4
+        }
+      }
+    },
+    "Policy_Exceptions": {
+      "row_count": 3,
+      "column_count": 10,
+      "columns": [
+        "exception_id",
+        "faculty_id",
+        "policy_id",
+        "max_hours_override",
+        "approval_status",
+        "valid_from",
+        "valid_to",
+        "reason",
+        "approved_by",
+        "notes"
+      ],
+      "column_details": {
+        "exception_id": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "policy_id": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "max_hours_override": {
+          "dtype": "int64",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "approval_status": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "valid_from": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "valid_to": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "reason": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "approved_by": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "notes": {
+          "dtype": "object",
+          "non_null_count": 3,
+          "null_count": 0,
+          "unique_count": 3
+        }
+      }
+    },
+    "Academic_Calendar": {
+      "row_count": 8,
+      "column_count": 7,
+      "columns": [
+        "calendar_event_id",
+        "start_date",
+        "end_date",
+        "event_name",
+        "event_type",
+        "description",
+        "scope"
+      ],
+      "column_details": {
+        "calendar_event_id": {
+          "dtype": "object",
+          "non_null_count": 8,
+          "null_count": 0,
+          "unique_count": 8
+        },
+        "start_date": {
+          "dtype": "object",
+          "non_null_count": 8,
+          "null_count": 0,
+          "unique_count": 8
+        },
+        "end_date": {
+          "dtype": "object",
+          "non_null_count": 8,
+          "null_count": 0,
+          "unique_count": 8
+        },
+        "event_name": {
+          "dtype": "object",
+          "non_null_count": 8,
+          "null_count": 0,
+          "unique_count": 7
+        },
+        "event_type": {
+          "dtype": "object",
+          "non_null_count": 8,
+          "null_count": 0,
+          "unique_count": 6
+        },
+        "description": {
+          "dtype": "object",
+          "non_null_count": 8,
+          "null_count": 0,
+          "unique_count": 7
+        },
+        "scope": {
+          "dtype": "object",
+          "non_null_count": 8,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Historical_Workload": {
+      "row_count": 72,
+      "column_count": 8,
+      "columns": [
+        "history_id",
+        "faculty_id",
+        "academic_year",
+        "term",
+        "average_weekly_teaching_hours",
+        "average_weekly_assignment_count",
+        "measurement_basis",
+        "data_note"
+      ],
+      "column_details": {
+        "history_id": {
+          "dtype": "object",
+          "non_null_count": 72,
+          "null_count": 0,
+          "unique_count": 72
+        },
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 72,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "academic_year": {
+          "dtype": "object",
+          "non_null_count": 72,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "term": {
+          "dtype": "object",
+          "non_null_count": 72,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "average_weekly_teaching_hours": {
+          "dtype": "int64",
+          "non_null_count": 72,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "average_weekly_assignment_count": {
+          "dtype": "int64",
+          "non_null_count": 72,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "measurement_basis": {
+          "dtype": "object",
+          "non_null_count": 72,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "data_note": {
+          "dtype": "object",
+          "non_null_count": 72,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Workload_Summary": {
+      "row_count": 18,
+      "column_count": 12,
+      "columns": [
+        "faculty_id",
+        "faculty_name",
+        "department_id",
+        "designation",
+        "week_start",
+        "week_end",
+        "actual_teaching_hours",
+        "standard_policy_max_hours",
+        "effective_max_hours",
+        "excess_hours",
+        "policy_violation",
+        "calculation_note"
+      ],
+      "column_details": {
+        "faculty_id": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "faculty_name": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 18
+        },
+        "department_id": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "designation": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "week_start": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "week_end": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        },
+        "actual_teaching_hours": {
+          "dtype": "int64",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 8
+        },
+        "standard_policy_max_hours": {
+          "dtype": "int64",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "effective_max_hours": {
+          "dtype": "int64",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 5
+        },
+        "excess_hours": {
+          "dtype": "int64",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 4
+        },
+        "policy_violation": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "calculation_note": {
+          "dtype": "object",
+          "non_null_count": 18,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Rooms": {
+      "row_count": 24,
+      "column_count": 5,
+      "columns": [
+        "room_id",
+        "department_id",
+        "room_type",
+        "capacity",
+        "status"
+      ],
+      "column_details": {
+        "room_id": {
+          "dtype": "object",
+          "non_null_count": 24,
+          "null_count": 0,
+          "unique_count": 24
+        },
+        "department_id": {
+          "dtype": "object",
+          "non_null_count": 24,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "room_type": {
+          "dtype": "object",
+          "non_null_count": 24,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "capacity": {
+          "dtype": "int64",
+          "non_null_count": 24,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        "status": {
+          "dtype": "object",
+          "non_null_count": 24,
+          "null_count": 0,
+          "unique_count": 1
+        }
+      }
+    },
+    "Test_Queries": {
+      "row_count": 15,
+      "column_count": 6,
+      "columns": [
+        "test_id",
+        "required_role",
+        "question",
+        "required_data_sheets",
+        "expected_processing",
+        "validation_expectation"
+      ],
+      "column_details": {
+        "test_id": {
+          "dtype": "object",
+          "non_null_count": 15,
+          "null_count": 0,
+          "unique_count": 15
+        },
+        "required_role": {
+          "dtype": "object",
+          "non_null_count": 15,
+          "null_count": 0,
+          "unique_count": 3
+        },
+        "question": {
+          "dtype": "object",
+          "non_null_count": 15,
+          "null_count": 0,
+          "unique_count": 15
+        },
+        "required_data_sheets": {
+          "dtype": "object",
+          "non_null_count": 15,
+          "null_count": 0,
+          "unique_count": 15
+        },
+        "expected_processing": {
+          "dtype": "object",
+          "non_null_count": 15,
+          "null_count": 0,
+          "unique_count": 15
+        },
+        "validation_expectation": {
+          "dtype": "object",
+          "non_null_count": 15,
+          "null_count": 0,
+          "unique_count": 15
+        }
+      }
+    },
+    "README": {
+      "row_count": 20,
+      "column_count": 2,
+      "columns": [
+        "item",
+        "details"
+      ],
+      "column_details": {
+        "item": {
+          "dtype": "object",
+          "non_null_count": 20,
+          "null_count": 0,
+          "unique_count": 20
+        },
+        "details": {
+          "dtype": "object",
+          "non_null_count": 20,
+          "null_count": 0,
+          "unique_count": 20
+        }
+      }
+    },
+    "Data_Dictionary": {
+      "row_count": 13,
+      "column_count": 3,
+      "columns": [
+        "sheet_name",
+        "field_name",
+        "definition"
+      ],
+      "column_details": {
+        "sheet_name": {
+          "dtype": "object",
+          "non_null_count": 13,
+          "null_count": 0,
+          "unique_count": 10
+        },
+        "field_name": {
+          "dtype": "object",
+          "non_null_count": 13,
+          "null_count": 0,
+          "unique_count": 12
+        },
+        "definition": {
+          "dtype": "object",
+          "non_null_count": 13,
+          "null_count": 0,
+          "unique_count": 13
+        }
+      }
+    }
+  },
+  "primary_key_validation": {
+    "Departments": {
+      "primary_key": "department_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Faculty": {
+      "primary_key": "faculty_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Users_Roles": {
+      "primary_key": "user_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Sections": {
+      "primary_key": "section_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Subjects": {
+      "primary_key": "subject_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Workload_Policies": {
+      "primary_key": "policy_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Workload_Rules": {
+      "primary_key": "rule_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Faculty_Subject_Allocations": {
+      "primary_key": "allocation_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Timetable": {
+      "primary_key": "timetable_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Assignments": {
+      "primary_key": "assignment_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Leave_Records": {
+      "primary_key": "leave_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Faculty_Availability": {
+      "primary_key": "availability_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Workload_Exemptions": {
+      "primary_key": "exemption_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Policy_Exceptions": {
+      "primary_key": "exception_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Academic_Calendar": {
+      "primary_key": "calendar_event_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Historical_Workload": {
+      "primary_key": "history_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Rooms": {
+      "primary_key": "room_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    },
+    "Test_Queries": {
+      "primary_key": "test_id",
+      "is_unique": true,
+      "duplicate_count": 0
+    }
+  },
+  "foreign_key_validation": {
+    "Faculty.department_id -> Departments.department_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Users_Roles.faculty_id -> Faculty.faculty_id (nullable for admin)": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Sections.department_id -> Departments.department_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Subjects.department_id -> Departments.department_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Faculty_Subject_Allocations.faculty_id -> Faculty.faculty_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Faculty_Subject_Allocations.subject_id -> Subjects.subject_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Faculty_Subject_Allocations.section_id -> Sections.section_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Timetable.faculty_id -> Faculty.faculty_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Timetable.subject_id -> Subjects.subject_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Timetable.section_id -> Sections.section_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Timetable.room -> Rooms.room_id": {
+      "valid": false,
+      "invalid_count": 187,
+      "sample_invalid": [
+        "IML-LAB-1",
+        "IML-202",
+        "IML-LAB-2",
+        "IML-203",
+        "IML-LAB-3"
+      ]
+    },
+    "Assignments.faculty_id -> Faculty.faculty_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Assignments.subject_id -> Subjects.subject_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Leave_Records.faculty_id -> Faculty.faculty_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Leave_Records.replacement_faculty_id -> Faculty.faculty_id (nullable)": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Workload_Exemptions.faculty_id -> Faculty.faculty_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Policy_Exceptions.faculty_id -> Faculty.faculty_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Policy_Exceptions.policy_id -> Workload_Policies.policy_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    },
+    "Historical_Workload.faculty_id -> Faculty.faculty_id": {
+      "valid": true,
+      "invalid_count": 0,
+      "sample_invalid": []
+    }
+  },
+  "missing_values": {
+    "Users_Roles": {
+      "faculty_id": 1
+    },
+    "Timetable": {
+      "substitute_for_faculty_id": 279,
+      "substitution_of_timetable_id": 277
+    },
+    "Leave_Records": {
+      "replacement_faculty_id": 3
+    },
+    "Faculty_Availability": {
+      "notes": 18
+    }
+  },
+  "inconsistencies_detected": [
+    {
+      "issue_id": "INC-001",
+      "severity": "HIGH",
+      "sheet": "Faculty_Availability",
+      "description": "Column header shift detected: 'faculty_id' contains period_start date ('2026-11-09'), 'period_start' contains period_end ('2026-11-13'), 'period_end' contains availability_status ('Available'), 'availability_status' contains available_from ('08:30'), 'available_from' contains available_to ('18:00'), 'available_to' contains notes ('Standard working week'). The faculty_id is embedded in 'availability_id' (e.g. 'AV-FAC001' -> 'FAC001').",
+      "handling_strategy": "In data ingestion cleaner, parse faculty_id from availability_id ('AV-FAC001' -> 'FAC001') and re-align shifted columns without modifying source workbook."
+    },
+    {
+      "issue_id": "INC-002",
+      "severity": "MEDIUM",
+      "sheet": "Timetable",
+      "description": "Room identifier mismatch: 187 Timetable rows reference room IDs not directly present in Rooms sheet. Missing 'A' prefix for AIML rooms (e.g. 'IML-202' vs 'AIML-202') and leading hyphen prefix for DS rooms (e.g. '-DS-203' vs 'DS-203').",
+      "sample_unknown": [
+        "-DS-204",
+        "-DS-203",
+        "-DS-LAB-2",
+        "IML-202",
+        "IML-LAB-1",
+        "-DS-202",
+        "IML-LAB-2",
+        "IML-203",
+        "-DS-LAB-1",
+        "-DS-201"
+      ],
+      "handling_strategy": "Record the original room string in timetable record. Provide an explicit normalized room resolver: map 'IML-' -> 'AIML-' and strip leading '-' from '-DS-' -> 'DS-'. Preserve raw source string and log the normalization."
+    },
+    {
+      "issue_id": "INC-003",
+      "severity": "INFO",
+      "sheet": "Users_Roles",
+      "description": "Admin user USR019 ('admin') has null faculty_id. This is valid by design as administrators operate at the institution level without personal faculty teaching records.",
+      "handling_strategy": "Allow nullable faculty_id in Users_Roles schema."
+    }
+  ],
+  "timetable_conflicts": {
+    "faculty_conflict_count": 0,
+    "room_conflict_count": 11,
+    "section_conflict_count": 70,
+    "sample_room_conflicts": [
+      {
+        "tt1": "TT0003",
+        "tt2": "TT0081",
+        "room": "CSE-201",
+        "day": "Tuesday",
+        "time1": "10:00-11:00",
+        "time2": "10:00-11:00"
+      },
+      {
+        "tt1": "TT0005",
+        "tt2": "TT0082",
+        "room": "CSE-201",
+        "day": "Tuesday",
+        "time1": "12:15-13:15",
+        "time2": "12:15-13:15"
+      },
+      {
+        "tt1": "TT0006",
+        "tt2": "TT0083",
+        "room": "CSE-201",
+        "day": "Tuesday",
+        "time1": "14:00-15:00",
+        "time2": "14:00-15:00"
+      },
+      {
+        "tt1": "TT0010",
+        "tt2": "TT0088",
+        "room": "CSE-201",
+        "day": "Thursday",
+        "time1": "09:00-10:00",
+        "time2": "09:00-10:00"
+      },
+      {
+        "tt1": "TT0012",
+        "tt2": "TT0089",
+        "room": "CSE-201",
+        "day": "Thursday",
+        "time1": "14:00-15:00",
+        "time2": "14:00-15:00"
+      }
+    ],
+    "sample_section_conflicts": [
+      {
+        "tt1": "TT0001",
+        "tt2": "TT0064",
+        "section_id": "CSE-S5-A",
+        "day": "Monday",
+        "time1": "12:15-13:15",
+        "time2": "12:15-13:15"
+      },
+      {
+        "tt1": "TT0003",
+        "tt2": "TT0081",
+        "section_id": "CSE-S5-B",
+        "day": "Tuesday",
+        "time1": "10:00-11:00",
+        "time2": "10:00-11:00"
+      },
+      {
+        "tt1": "TT0005",
+        "tt2": "TT0068",
+        "section_id": "CSE-S5-A",
+        "day": "Tuesday",
+        "time1": "12:15-13:15",
+        "time2": "12:15-13:15"
+      },
+      {
+        "tt1": "TT0006",
+        "tt2": "TT0069",
+        "section_id": "CSE-S7-A",
+        "day": "Tuesday",
+        "time1": "14:00-15:00",
+        "time2": "14:00-15:00"
+      },
+      {
+        "tt1": "TT0007",
+        "tt2": "TT0280",
+        "section_id": "CSE-S5-B",
+        "day": "Wednesday",
+        "time1": "11:15-12:15",
+        "time2": "11:15-12:15"
+      }
+    ]
+  },
+  "workload_calculation_validation": {
+    "total_faculty_evaluated": 18,
+    "perfect_matches": 18,
+    "mismatches": [],
+    "validation_status": "PASSED"
+  },
+  "summary": {
+    "status": "HEALTHY_WITH_REPORTED_ANOMALIES",
+    "total_sheets": 21,
+    "total_records": 648,
+    "all_primary_keys_unique": true,
+    "independent_workload_validation": "PASSED",
+    "anomalies_count": 3
+  }
+}
